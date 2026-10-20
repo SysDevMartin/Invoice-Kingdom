@@ -14,6 +14,8 @@ namespace InvoiceKingdom.Models
 
         public string? Reference { get; set; }
 
-        public ICollection<InvoiceWork> InvoiceWork { get; set; } = null!;
+        public bool IsCanceled { get; set; } = false;
+
+        public required ICollection<InvoiceWork> InvoiceWork { get; set; }
     }
 }

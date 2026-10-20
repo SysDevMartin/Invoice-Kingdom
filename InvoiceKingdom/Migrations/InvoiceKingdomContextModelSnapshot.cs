@@ -29,6 +29,9 @@ namespace InvoiceKingdom.Migrations
                     b.Property<int>("InvoiceNumber")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("IsCanceled")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Reference")
                         .HasColumnType("TEXT");
 
