@@ -9,17 +9,17 @@ namespace InvoiceKingdom.Models
     {
         public int Id { get; set; }
 
-        public required Invoice Invoice { get; set; }
+        public Invoice Invoice { get; set; } = null!;
 
-        public required string WorkName { get; set; }
+        public string WorkName { get; set; } = null!;
 
-        [Column(TypeName = "decimal(5, 2")]
+        [Column(TypeName = "decimal(5, 2)")]
         public decimal WorkAmountUnits { get; set; }
 
-        [Column(TypeName = "decimal(6, 2")]
+        [Column(TypeName = "decimal(6, 2)")]
         public decimal PricePerWorkAmountUnit { get; set; }
 
-        [Column(TypeName = "decimal(3, 2")]
+        [Column(TypeName = "decimal(3, 2)")]
         public decimal VatRate { get; set; }
 
         [Column(TypeName = "decimal(3, 2)")]
