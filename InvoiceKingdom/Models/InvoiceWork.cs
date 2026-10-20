@@ -9,9 +9,9 @@ namespace InvoiceKingdom.Models
     {
         public int Id { get; set; }
 
-        public Invoice Invoice { get; set; } = null!;
+        public Invoice Invoice { get; set; }
 
-        public string WorkName { get; set; } = null!;
+        public string WorkName { get; set; }
 
         [Column(TypeName = "decimal(5, 2)")]
         public decimal WorkAmountUnits { get; set; }
