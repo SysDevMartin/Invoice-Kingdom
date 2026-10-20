@@ -6,11 +6,11 @@ using System.Text;
 
 namespace InvoiceKingdom.Data
 {
-    internal class ApplicationContext : DbContext
+    internal class InvoiceKingdomContext : DbContext
     {
-        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Invoice> Invoices { get; set; } = null!;
 
-        public DbSet<InvoiceWork> InvoiceWork { get; set; }
+        public DbSet<InvoiceWork> InvoiceWork { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
