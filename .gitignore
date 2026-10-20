@@ -1,0 +1,4 @@
+.vs/
+*.csproj.user
+InvoiceKingdom/bin/
+InvoiceKingdom/obj/
