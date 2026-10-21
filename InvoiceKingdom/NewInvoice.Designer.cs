@@ -53,6 +53,7 @@
             checkBoxAutoOpen = new CheckBox();
             panelInvoiceActions = new Panel();
             panelCustomer = new Panel();
+            labelCustomerDetails = new Label();
             panelDetails = new Panel();
             panelInvoiceInfo = new Panel();
             panelWork = new Panel();
@@ -142,7 +143,7 @@
             // labelWorkAmount
             // 
             labelWorkAmount.AutoSize = true;
-            labelWorkAmount.Location = new Point(532, 16);
+            labelWorkAmount.Location = new Point(543, 16);
             labelWorkAmount.Margin = new Padding(4, 0, 4, 0);
             labelWorkAmount.Name = "labelWorkAmount";
             labelWorkAmount.Size = new Size(50, 23);
@@ -151,7 +152,7 @@
             // 
             // textAmount
             // 
-            textAmount.Location = new Point(532, 43);
+            textAmount.Location = new Point(543, 43);
             textAmount.Margin = new Padding(4);
             textAmount.Name = "textAmount";
             textAmount.Size = new Size(82, 30);
@@ -159,10 +160,10 @@
             // 
             // buttonAddWork
             // 
-            buttonAddWork.Location = new Point(637, 42);
+            buttonAddWork.Location = new Point(651, 41);
             buttonAddWork.Margin = new Padding(4);
             buttonAddWork.Name = "buttonAddWork";
-            buttonAddWork.Size = new Size(121, 31);
+            buttonAddWork.Size = new Size(121, 35);
             buttonAddWork.TabIndex = 2;
             buttonAddWork.Text = "Lägg till";
             buttonAddWork.UseVisualStyleBackColor = true;
@@ -199,12 +200,12 @@
             // 
             labelInvoiceNumberValue.AutoSize = true;
             labelInvoiceNumberValue.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelInvoiceNumberValue.Location = new Point(15, 46);
+            labelInvoiceNumberValue.Location = new Point(15, 42);
             labelInvoiceNumberValue.Margin = new Padding(4, 0, 4, 0);
             labelInvoiceNumberValue.Name = "labelInvoiceNumberValue";
-            labelInvoiceNumberValue.Size = new Size(46, 21);
+            labelInvoiceNumberValue.Size = new Size(16, 21);
             labelInvoiceNumberValue.TabIndex = 16;
-            labelInvoiceNumberValue.Text = "1500";
+            labelInvoiceNumberValue.Text = "-";
             // 
             // dateTimeDueDate
             // 
@@ -216,7 +217,6 @@
             // 
             // labelStatistics
             // 
-            labelStatistics.BackColor = Color.Gainsboro;
             labelStatistics.Location = new Point(16, 15);
             labelStatistics.Margin = new Padding(4, 0, 4, 0);
             labelStatistics.Name = "labelStatistics";
@@ -236,7 +236,7 @@
             // 
             // buttonRemoveWork
             // 
-            buttonRemoveWork.Location = new Point(14, 250);
+            buttonRemoveWork.Location = new Point(14, 219);
             buttonRemoveWork.Margin = new Padding(4);
             buttonRemoveWork.Name = "buttonRemoveWork";
             buttonRemoveWork.Size = new Size(96, 33);
@@ -247,10 +247,10 @@
             // listWork
             // 
             listWork.FormattingEnabled = true;
-            listWork.Location = new Point(14, 120);
+            listWork.Location = new Point(14, 115);
             listWork.Margin = new Padding(4);
             listWork.Name = "listWork";
-            listWork.Size = new Size(743, 119);
+            listWork.Size = new Size(758, 96);
             listWork.TabIndex = 3;
             // 
             // buttonCreateInvoice
@@ -300,6 +300,7 @@
             // 
             panelCustomer.BackColor = Color.LightGray;
             panelCustomer.BorderStyle = BorderStyle.FixedSingle;
+            panelCustomer.Controls.Add(labelCustomerDetails);
             panelCustomer.Controls.Add(labelCustomer);
             panelCustomer.Controls.Add(cbCustomer);
             panelCustomer.Location = new Point(15, 96);
@@ -307,6 +308,13 @@
             panelCustomer.Name = "panelCustomer";
             panelCustomer.Size = new Size(794, 101);
             panelCustomer.TabIndex = 25;
+            // 
+            // labelCustomerDetails
+            // 
+            labelCustomerDetails.Location = new Point(523, 24);
+            labelCustomerDetails.Name = "labelCustomerDetails";
+            labelCustomerDetails.Size = new Size(249, 49);
+            labelCustomerDetails.TabIndex = 4;
             // 
             // panelDetails
             // 
@@ -353,11 +361,11 @@
             // 
             // labelWorkDetails
             // 
-            labelWorkDetails.BackColor = Color.Gainsboro;
-            labelWorkDetails.Location = new Point(14, 298);
+            labelWorkDetails.Location = new Point(14, 278);
             labelWorkDetails.Name = "labelWorkDetails";
-            labelWorkDetails.Size = new Size(743, 54);
+            labelWorkDetails.Size = new Size(758, 74);
             labelWorkDetails.TabIndex = 7;
+            labelWorkDetails.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // NewInvoice
             // 
@@ -429,5 +437,6 @@
         private Panel panelInvoiceInfo;
         private Panel panelWork;
         private Label labelWorkDetails;
+        private Label labelCustomerDetails;
     }
 }
