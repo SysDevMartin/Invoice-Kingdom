@@ -52,6 +52,7 @@
             checkBoxAutoPrint = new CheckBox();
             checkBoxAutoOpen = new CheckBox();
             panelInvoiceActions = new Panel();
+            buttonResetInvoice = new Button();
             panelCustomer = new Panel();
             labelCustomerDetails = new Label();
             panelDetails = new Panel();
@@ -108,7 +109,7 @@
             cbCustomer.Margin = new Padding(4);
             cbCustomer.Name = "cbCustomer";
             cbCustomer.Size = new Size(489, 31);
-            cbCustomer.TabIndex = 2;
+            cbCustomer.TabIndex = 0;
             // 
             // labelCustomer
             // 
@@ -236,7 +237,7 @@
             // 
             // buttonRemoveWork
             // 
-            buttonRemoveWork.Location = new Point(14, 219);
+            buttonRemoveWork.Location = new Point(14, 242);
             buttonRemoveWork.Margin = new Padding(4);
             buttonRemoveWork.Name = "buttonRemoveWork";
             buttonRemoveWork.Size = new Size(96, 33);
@@ -250,7 +251,7 @@
             listWork.Location = new Point(14, 115);
             listWork.Margin = new Padding(4);
             listWork.Name = "listWork";
-            listWork.Size = new Size(758, 96);
+            listWork.Size = new Size(758, 119);
             listWork.TabIndex = 3;
             // 
             // buttonCreateInvoice
@@ -259,42 +260,53 @@
             buttonCreateInvoice.Margin = new Padding(4);
             buttonCreateInvoice.Name = "buttonCreateInvoice";
             buttonCreateInvoice.Size = new Size(225, 46);
-            buttonCreateInvoice.TabIndex = 3;
+            buttonCreateInvoice.TabIndex = 0;
             buttonCreateInvoice.Text = "Skapa fakturan";
             buttonCreateInvoice.UseVisualStyleBackColor = true;
             // 
             // checkBoxAutoPrint
             // 
             checkBoxAutoPrint.AutoSize = true;
-            checkBoxAutoPrint.Location = new Point(254, 11);
+            checkBoxAutoPrint.Location = new Point(250, 11);
             checkBoxAutoPrint.Margin = new Padding(4);
             checkBoxAutoPrint.Name = "checkBoxAutoPrint";
             checkBoxAutoPrint.Size = new Size(153, 27);
-            checkBoxAutoPrint.TabIndex = 4;
+            checkBoxAutoPrint.TabIndex = 1;
             checkBoxAutoPrint.Text = "Skriv ut fakturan";
             checkBoxAutoPrint.UseVisualStyleBackColor = true;
             // 
             // checkBoxAutoOpen
             // 
             checkBoxAutoOpen.AutoSize = true;
-            checkBoxAutoOpen.Location = new Point(430, 11);
+            checkBoxAutoOpen.Location = new Point(426, 11);
             checkBoxAutoOpen.Margin = new Padding(4);
             checkBoxAutoOpen.Name = "checkBoxAutoOpen";
-            checkBoxAutoOpen.Size = new Size(149, 27);
-            checkBoxAutoOpen.TabIndex = 5;
-            checkBoxAutoOpen.Text = "Öppna fakturan";
+            checkBoxAutoOpen.Size = new Size(128, 27);
+            checkBoxAutoOpen.TabIndex = 2;
+            checkBoxAutoOpen.Text = "Visa fakturan";
             checkBoxAutoOpen.UseVisualStyleBackColor = true;
             // 
             // panelInvoiceActions
             // 
+            panelInvoiceActions.Controls.Add(buttonResetInvoice);
             panelInvoiceActions.Controls.Add(buttonCreateInvoice);
             panelInvoiceActions.Controls.Add(checkBoxAutoPrint);
             panelInvoiceActions.Controls.Add(checkBoxAutoOpen);
             panelInvoiceActions.Location = new Point(15, 635);
             panelInvoiceActions.Margin = new Padding(4);
             panelInvoiceActions.Name = "panelInvoiceActions";
-            panelInvoiceActions.Size = new Size(583, 49);
-            panelInvoiceActions.TabIndex = 24;
+            panelInvoiceActions.Size = new Size(1261, 49);
+            panelInvoiceActions.TabIndex = 4;
+            // 
+            // buttonResetInvoice
+            // 
+            buttonResetInvoice.Location = new Point(1075, 6);
+            buttonResetInvoice.Margin = new Padding(4);
+            buttonResetInvoice.Name = "buttonResetInvoice";
+            buttonResetInvoice.Size = new Size(186, 34);
+            buttonResetInvoice.TabIndex = 3;
+            buttonResetInvoice.Text = "Nollställ fakturan";
+            buttonResetInvoice.UseVisualStyleBackColor = true;
             // 
             // panelCustomer
             // 
@@ -307,7 +319,7 @@
             panelCustomer.Margin = new Padding(4);
             panelCustomer.Name = "panelCustomer";
             panelCustomer.Size = new Size(794, 101);
-            panelCustomer.TabIndex = 25;
+            panelCustomer.TabIndex = 0;
             // 
             // labelCustomerDetails
             // 
@@ -325,7 +337,7 @@
             panelDetails.Margin = new Padding(2, 3, 2, 3);
             panelDetails.Name = "panelDetails";
             panelDetails.Size = new Size(433, 211);
-            panelDetails.TabIndex = 26;
+            panelDetails.TabIndex = 3;
             // 
             // panelInvoiceInfo
             // 
@@ -340,7 +352,7 @@
             panelInvoiceInfo.Location = new Point(843, 96);
             panelInvoiceInfo.Name = "panelInvoiceInfo";
             panelInvoiceInfo.Size = new Size(433, 263);
-            panelInvoiceInfo.TabIndex = 27;
+            panelInvoiceInfo.TabIndex = 2;
             // 
             // panelWork
             // 
@@ -357,13 +369,13 @@
             panelWork.Location = new Point(15, 238);
             panelWork.Name = "panelWork";
             panelWork.Size = new Size(794, 369);
-            panelWork.TabIndex = 28;
+            panelWork.TabIndex = 1;
             // 
             // labelWorkDetails
             // 
-            labelWorkDetails.Location = new Point(14, 278);
+            labelWorkDetails.Location = new Point(14, 303);
             labelWorkDetails.Name = "labelWorkDetails";
-            labelWorkDetails.Size = new Size(758, 74);
+            labelWorkDetails.Size = new Size(758, 49);
             labelWorkDetails.TabIndex = 7;
             labelWorkDetails.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -438,5 +450,6 @@
         private Panel panelWork;
         private Label labelWorkDetails;
         private Label labelCustomerDetails;
+        private Button buttonResetInvoice;
     }
 }
