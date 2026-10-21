@@ -12,6 +12,8 @@ namespace InvoiceKingdom.Data
 
         public DbSet<InvoiceWork> InvoiceWork { get; set; } = null!;
 
+        public DbSet<Customer> Customers { get; set; } = null!;
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=ApplicationData.db");
