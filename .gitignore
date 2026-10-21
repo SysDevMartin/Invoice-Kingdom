@@ -2,4 +2,5 @@
 *.csproj.user
 bin/
 obj/
-ApplicationData.db
+ApplicationData.db*
+Migrations/
