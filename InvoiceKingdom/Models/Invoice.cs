@@ -4,6 +4,13 @@ using System.Text;
 
 namespace InvoiceKingdom.Models
 {
+    enum State
+    {
+        Unpaid,
+        Paid,
+        Canceled
+    }
+
     internal class Invoice
     {
         public int Id { get; set; }
@@ -14,7 +21,7 @@ namespace InvoiceKingdom.Models
 
         public string? Reference { get; set; }
 
-        public bool IsCanceled { get; set; } = false;
+        public State State { get; set; }
 
         public required ICollection<InvoiceWork> InvoiceWork { get; set; }
     }
