@@ -9,6 +9,7 @@ namespace InvoiceKingdom.Models
     {
         Unpaid,
         Paid,
+        AwaitingTaxReductionClaim,
         Canceled
     }
 
@@ -18,6 +19,8 @@ namespace InvoiceKingdom.Models
 
         public int InvoiceNumber { get; set; }
 
+        public required Customer Customer { get; set; }
+
         public DateTime DueDate { get; set; }
 
         public string? Reference { get; set; }
@@ -26,28 +29,38 @@ namespace InvoiceKingdom.Models
 
         public required ICollection<InvoiceWork> InvoiceWork { get; set; }
 
-        public static void SaveInvoice(
+        public DateTime Created { get; set; }
+
+        public static void CreateInvoice(
             InvoiceKingdomContext context,
             int invoiceNumber,
+            Customer customer,
             DateTime dueDate,
             string reference,
             List<InvoiceWork> invoiceWork)
         {
-            Models.Invoice invoice = new()
+            var invoice = new Invoice()
             {
                 InvoiceNumber = invoiceNumber,
+                Customer = customer,
                 DueDate = dueDate.Date,
                 Reference = reference,
-                InvoiceWork = invoiceWork
+                State = State.Unpaid,
+                InvoiceWork = invoiceWork,
+                Created = DateTime.Now
             };
             context.Add(invoice);
-
             context.SaveChanges();
         }
 
         public static IOrderedQueryable<Models.Invoice> GetAllInvoices(InvoiceKingdomContext context)
         {
             return context.Invoices.OrderBy(i => i.InvoiceNumber);
+        }
+
+        public static Invoice GetInvoiceById(InvoiceKingdomContext context, int id)
+        {
+            return context.Invoices.First(i => i.Id == id);
         }
     }
 }
