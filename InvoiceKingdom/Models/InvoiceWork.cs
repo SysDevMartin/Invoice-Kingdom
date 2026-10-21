@@ -9,8 +9,6 @@ namespace InvoiceKingdom.Models
     {
         public int Id { get; set; }
 
-        public required Invoice Invoice { get; set; }
-
         public required string WorkName { get; set; }
 
         [Column(TypeName = "decimal(5, 2)")]

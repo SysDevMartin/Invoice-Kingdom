@@ -22,5 +22,7 @@ namespace InvoiceKingdom.Models
         public string? Reference { get; set; }
 
         public State State { get; set; } = State.Unpaid;
+
+        public required ICollection<InvoiceWork> InvoiceWork { get; set; }
     }
 }
