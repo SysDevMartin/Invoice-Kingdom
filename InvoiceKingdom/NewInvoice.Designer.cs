@@ -38,29 +38,50 @@
             cbWork = new ComboBox();
             labelWorkAmount = new Label();
             textAmount = new TextBox();
-            textWorkSum = new TextBox();
-            labelWorkSum = new Label();
-            textWorkVat = new TextBox();
-            labelWorkVat = new Label();
             buttonAddWork = new Button();
+            labelDueDate = new Label();
+            labelReference = new Label();
+            textReference = new TextBox();
+            labelInvoiceNumberValue = new Label();
+            dateTimeDueDate = new DateTimePicker();
+            labelStatistics = new Label();
+            labelFormTitle = new Label();
+            buttonRemoveWork = new Button();
+            listWork = new ListBox();
+            buttonCreateInvoice = new Button();
+            checkBoxAutoPrint = new CheckBox();
+            checkBoxAutoOpen = new CheckBox();
+            panelInvoiceActions = new Panel();
+            panelCustomer = new Panel();
+            panelDetails = new Panel();
+            panelInvoiceInfo = new Panel();
+            panelWork = new Panel();
+            labelWorkDetails = new Label();
             menuStrip.SuspendLayout();
+            panelInvoiceActions.SuspendLayout();
+            panelCustomer.SuspendLayout();
+            panelDetails.SuspendLayout();
+            panelInvoiceInfo.SuspendLayout();
+            panelWork.SuspendLayout();
             SuspendLayout();
             // 
             // labelInvoiceNumber
             // 
             labelInvoiceNumber.AutoSize = true;
-            labelInvoiceNumber.Location = new Point(25, 47);
+            labelInvoiceNumber.Location = new Point(15, 15);
+            labelInvoiceNumber.Margin = new Padding(4, 0, 4, 0);
             labelInvoiceNumber.Name = "labelInvoiceNumber";
-            labelInvoiceNumber.Size = new Size(101, 15);
+            labelInvoiceNumber.Size = new Size(130, 23);
             labelInvoiceNumber.TabIndex = 0;
-            labelInvoiceNumber.Text = "Invoice number: ?";
+            labelInvoiceNumber.Text = "Fakturanummer";
             // 
             // menuStrip
             // 
             menuStrip.Items.AddRange(new ToolStripItem[] { applicationMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
-            menuStrip.Size = new Size(1266, 24);
+            menuStrip.Padding = new Padding(8, 3, 0, 3);
+            menuStrip.Size = new Size(1300, 25);
             menuStrip.TabIndex = 1;
             menuStrip.Text = "menuStrip1";
             // 
@@ -68,138 +89,309 @@
             // 
             applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exitAppMenuItem });
             applicationMenuItem.Name = "applicationMenuItem";
-            applicationMenuItem.Size = new Size(80, 20);
-            applicationMenuItem.Text = "Application";
+            applicationMenuItem.Size = new Size(80, 19);
+            applicationMenuItem.Text = "Applikation";
             // 
             // exitAppMenuItem
             // 
             exitAppMenuItem.Name = "exitAppMenuItem";
-            exitAppMenuItem.Size = new Size(92, 22);
-            exitAppMenuItem.Text = "Exit";
+            exitAppMenuItem.Size = new Size(113, 22);
+            exitAppMenuItem.Text = "Avsluta";
             exitAppMenuItem.Click += exitAppMenuItem_Click;
             // 
             // cbCustomer
             // 
             cbCustomer.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCustomer.FormattingEnabled = true;
-            cbCustomer.Location = new Point(25, 113);
+            cbCustomer.Location = new Point(14, 42);
+            cbCustomer.Margin = new Padding(4);
             cbCustomer.Name = "cbCustomer";
-            cbCustomer.Size = new Size(387, 23);
+            cbCustomer.Size = new Size(489, 31);
             cbCustomer.TabIndex = 2;
             // 
             // labelCustomer
             // 
             labelCustomer.AutoSize = true;
-            labelCustomer.Location = new Point(25, 95);
+            labelCustomer.Location = new Point(14, 14);
+            labelCustomer.Margin = new Padding(4, 0, 4, 0);
             labelCustomer.Name = "labelCustomer";
-            labelCustomer.Size = new Size(59, 15);
+            labelCustomer.Size = new Size(50, 23);
             labelCustomer.TabIndex = 3;
-            labelCustomer.Text = "Customer";
+            labelCustomer.Text = "Kund";
             // 
             // labelWork
             // 
             labelWork.AutoSize = true;
-            labelWork.Location = new Point(25, 174);
+            labelWork.Location = new Point(14, 18);
+            labelWork.Margin = new Padding(4, 0, 4, 0);
             labelWork.Name = "labelWork";
-            labelWork.Size = new Size(35, 15);
+            labelWork.Size = new Size(61, 23);
             labelWork.TabIndex = 4;
-            labelWork.Text = "Work";
+            labelWork.Text = "Arbete";
             // 
             // cbWork
             // 
             cbWork.DropDownStyle = ComboBoxStyle.DropDownList;
             cbWork.FormattingEnabled = true;
-            cbWork.Location = new Point(25, 192);
+            cbWork.Location = new Point(14, 45);
+            cbWork.Margin = new Padding(4);
             cbWork.Name = "cbWork";
-            cbWork.Size = new Size(387, 23);
-            cbWork.TabIndex = 5;
+            cbWork.Size = new Size(496, 31);
+            cbWork.TabIndex = 0;
             // 
             // labelWorkAmount
             // 
             labelWorkAmount.AutoSize = true;
-            labelWorkAmount.Location = new Point(459, 174);
+            labelWorkAmount.Location = new Point(532, 16);
+            labelWorkAmount.Margin = new Padding(4, 0, 4, 0);
             labelWorkAmount.Name = "labelWorkAmount";
-            labelWorkAmount.Size = new Size(51, 15);
+            labelWorkAmount.Size = new Size(50, 23);
             labelWorkAmount.TabIndex = 6;
-            labelWorkAmount.Text = "Amount";
+            labelWorkAmount.Text = "Antal";
             // 
             // textAmount
             // 
-            textAmount.Location = new Point(459, 192);
+            textAmount.Location = new Point(532, 43);
+            textAmount.Margin = new Padding(4);
             textAmount.Name = "textAmount";
-            textAmount.Size = new Size(100, 23);
-            textAmount.TabIndex = 7;
-            // 
-            // textWorkSum
-            // 
-            textWorkSum.Enabled = false;
-            textWorkSum.Location = new Point(587, 192);
-            textWorkSum.Name = "textWorkSum";
-            textWorkSum.Size = new Size(100, 23);
-            textWorkSum.TabIndex = 9;
-            // 
-            // labelWorkSum
-            // 
-            labelWorkSum.AutoSize = true;
-            labelWorkSum.Location = new Point(587, 174);
-            labelWorkSum.Name = "labelWorkSum";
-            labelWorkSum.Size = new Size(31, 15);
-            labelWorkSum.TabIndex = 8;
-            labelWorkSum.Text = "Sum";
-            // 
-            // textWorkVat
-            // 
-            textWorkVat.Enabled = false;
-            textWorkVat.Location = new Point(712, 192);
-            textWorkVat.Name = "textWorkVat";
-            textWorkVat.Size = new Size(100, 23);
-            textWorkVat.TabIndex = 11;
-            // 
-            // labelWorkVat
-            // 
-            labelWorkVat.AutoSize = true;
-            labelWorkVat.Location = new Point(712, 174);
-            labelWorkVat.Name = "labelWorkVat";
-            labelWorkVat.Size = new Size(27, 15);
-            labelWorkVat.TabIndex = 10;
-            labelWorkVat.Text = "VAT";
+            textAmount.Size = new Size(82, 30);
+            textAmount.TabIndex = 1;
             // 
             // buttonAddWork
             // 
-            buttonAddWork.Location = new Point(835, 191);
+            buttonAddWork.Location = new Point(637, 42);
+            buttonAddWork.Margin = new Padding(4);
             buttonAddWork.Name = "buttonAddWork";
-            buttonAddWork.Size = new Size(75, 23);
-            buttonAddWork.TabIndex = 12;
-            buttonAddWork.Text = "Add work";
+            buttonAddWork.Size = new Size(121, 31);
+            buttonAddWork.TabIndex = 2;
+            buttonAddWork.Text = "Lägg till";
             buttonAddWork.UseVisualStyleBackColor = true;
+            // 
+            // labelDueDate
+            // 
+            labelDueDate.AutoSize = true;
+            labelDueDate.Location = new Point(15, 94);
+            labelDueDate.Margin = new Padding(4, 0, 4, 0);
+            labelDueDate.Name = "labelDueDate";
+            labelDueDate.Size = new Size(116, 23);
+            labelDueDate.TabIndex = 13;
+            labelDueDate.Text = "Förfallodatum";
+            // 
+            // labelReference
+            // 
+            labelReference.AutoSize = true;
+            labelReference.Location = new Point(15, 183);
+            labelReference.Margin = new Padding(4, 0, 4, 0);
+            labelReference.Name = "labelReference";
+            labelReference.Size = new Size(75, 23);
+            labelReference.TabIndex = 15;
+            labelReference.Text = "Referens";
+            // 
+            // textReference
+            // 
+            textReference.Location = new Point(15, 211);
+            textReference.Margin = new Padding(4);
+            textReference.Name = "textReference";
+            textReference.Size = new Size(387, 30);
+            textReference.TabIndex = 1;
+            // 
+            // labelInvoiceNumberValue
+            // 
+            labelInvoiceNumberValue.AutoSize = true;
+            labelInvoiceNumberValue.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelInvoiceNumberValue.Location = new Point(15, 46);
+            labelInvoiceNumberValue.Margin = new Padding(4, 0, 4, 0);
+            labelInvoiceNumberValue.Name = "labelInvoiceNumberValue";
+            labelInvoiceNumberValue.Size = new Size(46, 21);
+            labelInvoiceNumberValue.TabIndex = 16;
+            labelInvoiceNumberValue.Text = "1500";
+            // 
+            // dateTimeDueDate
+            // 
+            dateTimeDueDate.Location = new Point(17, 123);
+            dateTimeDueDate.Margin = new Padding(4);
+            dateTimeDueDate.Name = "dateTimeDueDate";
+            dateTimeDueDate.Size = new Size(385, 30);
+            dateTimeDueDate.TabIndex = 0;
+            // 
+            // labelStatistics
+            // 
+            labelStatistics.BackColor = Color.Gainsboro;
+            labelStatistics.Location = new Point(16, 15);
+            labelStatistics.Margin = new Padding(4, 0, 4, 0);
+            labelStatistics.Name = "labelStatistics";
+            labelStatistics.Size = new Size(403, 179);
+            labelStatistics.TabIndex = 0;
+            // 
+            // labelFormTitle
+            // 
+            labelFormTitle.AutoSize = true;
+            labelFormTitle.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelFormTitle.Location = new Point(11, 42);
+            labelFormTitle.Margin = new Padding(4, 0, 4, 0);
+            labelFormTitle.Name = "labelFormTitle";
+            labelFormTitle.Size = new Size(125, 32);
+            labelFormTitle.TabIndex = 19;
+            labelFormTitle.Text = "Ny faktura";
+            // 
+            // buttonRemoveWork
+            // 
+            buttonRemoveWork.Location = new Point(14, 250);
+            buttonRemoveWork.Margin = new Padding(4);
+            buttonRemoveWork.Name = "buttonRemoveWork";
+            buttonRemoveWork.Size = new Size(96, 33);
+            buttonRemoveWork.TabIndex = 4;
+            buttonRemoveWork.Text = "Ta bort";
+            buttonRemoveWork.UseVisualStyleBackColor = true;
+            // 
+            // listWork
+            // 
+            listWork.FormattingEnabled = true;
+            listWork.Location = new Point(14, 120);
+            listWork.Margin = new Padding(4);
+            listWork.Name = "listWork";
+            listWork.Size = new Size(743, 119);
+            listWork.TabIndex = 3;
+            // 
+            // buttonCreateInvoice
+            // 
+            buttonCreateInvoice.Location = new Point(0, 0);
+            buttonCreateInvoice.Margin = new Padding(4);
+            buttonCreateInvoice.Name = "buttonCreateInvoice";
+            buttonCreateInvoice.Size = new Size(225, 46);
+            buttonCreateInvoice.TabIndex = 3;
+            buttonCreateInvoice.Text = "Skapa fakturan";
+            buttonCreateInvoice.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAutoPrint
+            // 
+            checkBoxAutoPrint.AutoSize = true;
+            checkBoxAutoPrint.Location = new Point(254, 11);
+            checkBoxAutoPrint.Margin = new Padding(4);
+            checkBoxAutoPrint.Name = "checkBoxAutoPrint";
+            checkBoxAutoPrint.Size = new Size(153, 27);
+            checkBoxAutoPrint.TabIndex = 4;
+            checkBoxAutoPrint.Text = "Skriv ut fakturan";
+            checkBoxAutoPrint.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAutoOpen
+            // 
+            checkBoxAutoOpen.AutoSize = true;
+            checkBoxAutoOpen.Location = new Point(430, 11);
+            checkBoxAutoOpen.Margin = new Padding(4);
+            checkBoxAutoOpen.Name = "checkBoxAutoOpen";
+            checkBoxAutoOpen.Size = new Size(149, 27);
+            checkBoxAutoOpen.TabIndex = 5;
+            checkBoxAutoOpen.Text = "Öppna fakturan";
+            checkBoxAutoOpen.UseVisualStyleBackColor = true;
+            // 
+            // panelInvoiceActions
+            // 
+            panelInvoiceActions.Controls.Add(buttonCreateInvoice);
+            panelInvoiceActions.Controls.Add(checkBoxAutoPrint);
+            panelInvoiceActions.Controls.Add(checkBoxAutoOpen);
+            panelInvoiceActions.Location = new Point(15, 635);
+            panelInvoiceActions.Margin = new Padding(4);
+            panelInvoiceActions.Name = "panelInvoiceActions";
+            panelInvoiceActions.Size = new Size(583, 49);
+            panelInvoiceActions.TabIndex = 24;
+            // 
+            // panelCustomer
+            // 
+            panelCustomer.BackColor = Color.LightGray;
+            panelCustomer.BorderStyle = BorderStyle.FixedSingle;
+            panelCustomer.Controls.Add(labelCustomer);
+            panelCustomer.Controls.Add(cbCustomer);
+            panelCustomer.Location = new Point(15, 96);
+            panelCustomer.Margin = new Padding(4);
+            panelCustomer.Name = "panelCustomer";
+            panelCustomer.Size = new Size(794, 101);
+            panelCustomer.TabIndex = 25;
+            // 
+            // panelDetails
+            // 
+            panelDetails.BackColor = Color.LightGray;
+            panelDetails.BorderStyle = BorderStyle.FixedSingle;
+            panelDetails.Controls.Add(labelStatistics);
+            panelDetails.Location = new Point(843, 396);
+            panelDetails.Margin = new Padding(2, 3, 2, 3);
+            panelDetails.Name = "panelDetails";
+            panelDetails.Size = new Size(433, 211);
+            panelDetails.TabIndex = 26;
+            // 
+            // panelInvoiceInfo
+            // 
+            panelInvoiceInfo.BackColor = Color.LightGray;
+            panelInvoiceInfo.BorderStyle = BorderStyle.FixedSingle;
+            panelInvoiceInfo.Controls.Add(labelInvoiceNumberValue);
+            panelInvoiceInfo.Controls.Add(labelInvoiceNumber);
+            panelInvoiceInfo.Controls.Add(dateTimeDueDate);
+            panelInvoiceInfo.Controls.Add(labelDueDate);
+            panelInvoiceInfo.Controls.Add(labelReference);
+            panelInvoiceInfo.Controls.Add(textReference);
+            panelInvoiceInfo.Location = new Point(843, 96);
+            panelInvoiceInfo.Name = "panelInvoiceInfo";
+            panelInvoiceInfo.Size = new Size(433, 263);
+            panelInvoiceInfo.TabIndex = 27;
+            // 
+            // panelWork
+            // 
+            panelWork.BackColor = Color.LightGray;
+            panelWork.BorderStyle = BorderStyle.FixedSingle;
+            panelWork.Controls.Add(labelWorkDetails);
+            panelWork.Controls.Add(buttonRemoveWork);
+            panelWork.Controls.Add(labelWork);
+            panelWork.Controls.Add(cbWork);
+            panelWork.Controls.Add(buttonAddWork);
+            panelWork.Controls.Add(listWork);
+            panelWork.Controls.Add(textAmount);
+            panelWork.Controls.Add(labelWorkAmount);
+            panelWork.Location = new Point(15, 238);
+            panelWork.Name = "panelWork";
+            panelWork.Size = new Size(794, 369);
+            panelWork.TabIndex = 28;
+            // 
+            // labelWorkDetails
+            // 
+            labelWorkDetails.BackColor = Color.Gainsboro;
+            labelWorkDetails.Location = new Point(14, 298);
+            labelWorkDetails.Name = "labelWorkDetails";
+            labelWorkDetails.Size = new Size(743, 54);
+            labelWorkDetails.TabIndex = 7;
             // 
             // NewInvoice
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1266, 725);
-            Controls.Add(buttonAddWork);
-            Controls.Add(textWorkVat);
-            Controls.Add(labelWorkVat);
-            Controls.Add(textWorkSum);
-            Controls.Add(labelWorkSum);
-            Controls.Add(textAmount);
-            Controls.Add(labelWorkAmount);
-            Controls.Add(cbWork);
-            Controls.Add(labelWork);
-            Controls.Add(labelCustomer);
-            Controls.Add(cbCustomer);
-            Controls.Add(labelInvoiceNumber);
+            BackColor = Color.Gainsboro;
+            ClientSize = new Size(1300, 707);
+            Controls.Add(panelWork);
+            Controls.Add(panelInvoiceInfo);
+            Controls.Add(panelDetails);
+            Controls.Add(panelCustomer);
+            Controls.Add(labelFormTitle);
+            Controls.Add(panelInvoiceActions);
             Controls.Add(menuStrip);
+            Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip;
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "NewInvoice";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "NewInvoice";
+            Text = "Invoice Kingdom";
             Load += NewInvoice_Load;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
+            panelInvoiceActions.ResumeLayout(false);
+            panelInvoiceActions.PerformLayout();
+            panelCustomer.ResumeLayout(false);
+            panelCustomer.PerformLayout();
+            panelDetails.ResumeLayout(false);
+            panelInvoiceInfo.ResumeLayout(false);
+            panelInvoiceInfo.PerformLayout();
+            panelWork.ResumeLayout(false);
+            panelWork.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -216,11 +408,26 @@
         private ComboBox cbWork;
         private Label labelWorkAmount;
         private TextBox textAmount;
-        private TextBox textWorkSum;
-        private Label labelWorkSum;
         private Label labelCostSum;
-        private Label labelWorkVat;
         private Button buttonAddWork;
-        private TextBox textWorkVat;
+        private Label labelDueDate;
+        private Label labelReference;
+        private TextBox textReference;
+        private Label labelFormTitle;
+        private GroupBox groupWork;
+        private Button buttonCreateInvoice;
+        private Label labelStatistics;
+        private DateTimePicker dateTimeDueDate;
+        private Button buttonRemoveWork;
+        private ListBox listWork;
+        private CheckBox checkBoxAutoPrint;
+        private CheckBox checkBoxAutoOpen;
+        private Label labelInvoiceNumberValue;
+        private Panel panelInvoiceActions;
+        private Panel panelCustomer;
+        private Panel panelDetails;
+        private Panel panelInvoiceInfo;
+        private Panel panelWork;
+        private Label labelWorkDetails;
     }
 }

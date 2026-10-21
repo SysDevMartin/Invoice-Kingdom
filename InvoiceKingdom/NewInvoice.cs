@@ -21,10 +21,10 @@ namespace InvoiceKingdom
         {
             using InvoiceKingdomContext context = new();
             var invoices = Invoice.GetAllInvoices(context);
-            foreach (var invoice in invoices)
+            /*foreach (var invoice in invoices)
             {
-                textWorkSum.Text = invoice.DueDate.ToString();
-            }
+                labelDueDate.Text = $"Förfallodatum: {invoice.DueDate.ToShortDateString()}";
+            }*/
         }
 
         private void exitAppMenuItem_Click(object sender, EventArgs e)
