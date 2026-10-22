@@ -26,6 +26,8 @@ namespace InvoiceKingdom.Models
 
         public string PhoneNumber { get; set; } = null!;
 
+        public ICollection<WorkType> WorkTypes { get; set; } = null!;
+
         public DateTime Created { get; set; }
 
         public static void CreateCustomer(
