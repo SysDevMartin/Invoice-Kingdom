@@ -14,5 +14,29 @@ namespace InvoiceKingdom
         {
             InitializeComponent();
         }
+
+        private void NewCustomerForm_Load(object sender, EventArgs e)
+        {
+            Theme.SetFormStyle(this, labelFormDetails);
+            Theme.SetPanelStyle([
+                panelContactPerson,
+                panelAddress,
+                panelContactInfo,
+                panelWorkTypes
+                ]);
+            Theme.SetControlStyle([
+                textFirstName,
+                textLastName,
+                textPersonalIdentityNumber,
+                textStreetAddress,
+                textPostalCode,
+                textCity,
+                textEmailAddress,
+                textPhoneNumber,
+                checkedListWorkTypes,
+                buttonAddCustomer
+                ]);
+            labelWorkTypesDetails.ForeColor = Theme.LabelDetailsForeColor;
+        }
     }
 }
