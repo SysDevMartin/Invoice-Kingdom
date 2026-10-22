@@ -27,7 +27,15 @@ namespace InvoiceKingdom
                 panelDetails
             ]);
             Theme.SetControlStyle([
-                textReference
+                listWork,
+                textAmount,
+                textReference,
+                buttonAddWork,
+                buttonRemoveWork,
+                buttonCreateInvoice,
+                buttonResetInvoice,
+                checkBoxAutoPrint,
+                checkBoxAutoOpen
             ]);
 
             using InvoiceKingdomContext context = new();

@@ -135,16 +135,16 @@
             // 
             cbWork.DropDownStyle = ComboBoxStyle.DropDownList;
             cbWork.FormattingEnabled = true;
-            cbWork.Location = new Point(14, 45);
+            cbWork.Location = new Point(14, 44);
             cbWork.Margin = new Padding(4);
             cbWork.Name = "cbWork";
-            cbWork.Size = new Size(496, 31);
+            cbWork.Size = new Size(489, 31);
             cbWork.TabIndex = 0;
             // 
             // labelWorkAmount
             // 
             labelWorkAmount.AutoSize = true;
-            labelWorkAmount.Location = new Point(543, 16);
+            labelWorkAmount.Location = new Point(523, 18);
             labelWorkAmount.Margin = new Padding(4, 0, 4, 0);
             labelWorkAmount.Name = "labelWorkAmount";
             labelWorkAmount.Size = new Size(50, 23);
@@ -153,18 +153,18 @@
             // 
             // textAmount
             // 
-            textAmount.Location = new Point(543, 43);
+            textAmount.Location = new Point(523, 45);
             textAmount.Margin = new Padding(4);
             textAmount.Name = "textAmount";
-            textAmount.Size = new Size(82, 30);
+            textAmount.Size = new Size(79, 30);
             textAmount.TabIndex = 1;
             // 
             // buttonAddWork
             // 
-            buttonAddWork.Location = new Point(651, 41);
+            buttonAddWork.Location = new Point(620, 42);
             buttonAddWork.Margin = new Padding(4);
             buttonAddWork.Name = "buttonAddWork";
-            buttonAddWork.Size = new Size(121, 35);
+            buttonAddWork.Size = new Size(152, 35);
             buttonAddWork.TabIndex = 2;
             buttonAddWork.Text = "Lägg till";
             buttonAddWork.UseVisualStyleBackColor = true;
@@ -262,7 +262,7 @@
             buttonCreateInvoice.Size = new Size(225, 46);
             buttonCreateInvoice.TabIndex = 0;
             buttonCreateInvoice.Text = "Skapa fakturan";
-            buttonCreateInvoice.UseVisualStyleBackColor = true;
+            buttonCreateInvoice.UseVisualStyleBackColor = false;
             // 
             // checkBoxAutoPrint
             // 
