@@ -1,6 +1,7 @@
 ﻿using InvoiceKingdom.Data;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 
@@ -67,6 +68,24 @@ namespace InvoiceKingdom.Models
         public static IOrderedQueryable<Customer> GetAllCustomers(InvoiceKingdomContext context)
         {
             return context.Customers.OrderBy(c => c.FirstName).ThenBy(c => c.LastName);
+        }
+
+        public Invoice GetLatestInvoice(InvoiceKingdomContext context)
+        {
+            Invoice latestInvoice = null!;
+
+            var result = context.Invoices
+                .OrderByDescending(i => i.Created)
+                .Where(c => c.Id == Id);
+
+            Debug.WriteLine(result);
+
+            if (result.Any())
+            {
+                latestInvoice = result.First();
+            }
+
+            return latestInvoice;
         }
     }
 }
