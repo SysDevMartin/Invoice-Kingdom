@@ -61,6 +61,8 @@
             panelInvoiceInfo = new Panel();
             panelWork = new Panel();
             labelWorkDetails = new Label();
+            workTypeMenuItem = new ToolStripMenuItem();
+            newWorkTypeMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             panelInvoiceActions.SuspendLayout();
             panelCustomer.SuspendLayout();
@@ -81,7 +83,7 @@
             // 
             // menuStrip
             // 
-            menuStrip.Items.AddRange(new ToolStripItem[] { applicationMenuItem, customerMenuItem });
+            menuStrip.Items.AddRange(new ToolStripItem[] { applicationMenuItem, customerMenuItem, workTypeMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(8, 3, 0, 3);
@@ -113,7 +115,7 @@
             // newCustomerMenuItem
             // 
             newCustomerMenuItem.Name = "newCustomerMenuItem";
-            newCustomerMenuItem.Size = new Size(162, 22);
+            newCustomerMenuItem.Size = new Size(180, 22);
             newCustomerMenuItem.Text = "Lägg till ny kund";
             newCustomerMenuItem.Click += newCustomerMenuItem_Click;
             // 
@@ -391,6 +393,20 @@
             labelWorkDetails.TabIndex = 7;
             labelWorkDetails.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // workTypeMenuItem
+            // 
+            workTypeMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newWorkTypeMenuItem });
+            workTypeMenuItem.Name = "workTypeMenuItem";
+            workTypeMenuItem.Size = new Size(80, 19);
+            workTypeMenuItem.Text = "Arbetstyper";
+            // 
+            // newWorkTypeMenuItem
+            // 
+            newWorkTypeMenuItem.Name = "newWorkTypeMenuItem";
+            newWorkTypeMenuItem.Size = new Size(184, 22);
+            newWorkTypeMenuItem.Text = "Lägg till ny arbetstyp";
+            newWorkTypeMenuItem.Click += newWorkTypeMenuItem_Click;
+            // 
             // NewInvoiceForm
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
@@ -465,5 +481,7 @@
         private Button buttonResetInvoice;
         private ToolStripMenuItem customerMenuItem;
         private ToolStripMenuItem newCustomerMenuItem;
+        private ToolStripMenuItem workTypeMenuItem;
+        private ToolStripMenuItem newWorkTypeMenuItem;
     }
 }

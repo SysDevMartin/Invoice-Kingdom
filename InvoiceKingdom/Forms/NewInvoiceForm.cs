@@ -1,4 +1,5 @@
 ﻿using InvoiceKingdom.Data;
+using InvoiceKingdom.Forms;
 using InvoiceKingdom.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -109,6 +110,12 @@ namespace InvoiceKingdom
                 cbCustomer.Enabled = false;
                 cbWork.Focus();
             }
+        }
+
+        private void newWorkTypeMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new NewWorkTypeForm();
+            form.ShowDialog();
         }
     }
 }
