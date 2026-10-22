@@ -39,11 +39,11 @@ namespace InvoiceKingdom
             ]);
 
             using InvoiceKingdomContext context = new();
-            var invoices = Invoice.GetAllInvoices(context);
-            /*foreach (var invoice in invoices)
+            var customers = Customer.GetAllCustomers(context);
+            foreach (var customer in customers)
             {
-                labelDueDate.Text = $"Förfallodatum: {invoice.DueDate.ToShortDateString()}";
-            }*/
+                cbCustomer.Items.Add(customer.GetFullName());
+            }
         }
 
         private void exitAppMenuItem_Click(object sender, EventArgs e)
@@ -55,6 +55,25 @@ namespace InvoiceKingdom
         {
             var form = new NewCustomerForm();
             form.ShowDialog();
+        }
+
+        private void buttonCreateInvoice_Click(object sender, EventArgs e)
+        {
+            //var invoiceNumber = ;
+            //var customer = ;
+            //var dueDate = ;
+            //var reference = ;
+            //var invoiceWork = ;
+
+            using InvoiceKingdomContext context = new();
+            /*Invoice.CreateInvoice(
+                context,
+                invoiceNumber,
+                customer,
+                dueDate,
+                reference,
+                invoiceWork
+                );*/
         }
     }
 }

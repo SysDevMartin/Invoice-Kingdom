@@ -113,7 +113,7 @@
             // newCustomerMenuItem
             // 
             newCustomerMenuItem.Name = "newCustomerMenuItem";
-            newCustomerMenuItem.Size = new Size(180, 22);
+            newCustomerMenuItem.Size = new Size(162, 22);
             newCustomerMenuItem.Text = "Lägg till ny kund";
             newCustomerMenuItem.Click += newCustomerMenuItem_Click;
             // 
@@ -279,6 +279,7 @@
             buttonCreateInvoice.TabIndex = 0;
             buttonCreateInvoice.Text = "Skapa fakturan";
             buttonCreateInvoice.UseVisualStyleBackColor = false;
+            buttonCreateInvoice.Click += buttonCreateInvoice_Click;
             // 
             // checkBoxAutoPrint
             // 
