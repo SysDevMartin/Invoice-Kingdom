@@ -19,6 +19,17 @@ namespace InvoiceKingdom
 
         private void NewInvoice_Load(object sender, EventArgs e)
         {
+            Theme.SetFormStyle(this);
+            Theme.SetPanelStyle([
+                panelCustomer,
+                panelWork,
+                panelInvoiceInfo,
+                panelDetails
+            ]);
+            Theme.SetControlStyle([
+                textReference
+            ]);
+
             using InvoiceKingdomContext context = new();
             var invoices = Invoice.GetAllInvoices(context);
             /*foreach (var invoice in invoices)

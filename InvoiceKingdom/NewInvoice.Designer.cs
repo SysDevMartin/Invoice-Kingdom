@@ -310,8 +310,6 @@
             // 
             // panelCustomer
             // 
-            panelCustomer.BackColor = Color.LightGray;
-            panelCustomer.BorderStyle = BorderStyle.FixedSingle;
             panelCustomer.Controls.Add(labelCustomerDetails);
             panelCustomer.Controls.Add(labelCustomer);
             panelCustomer.Controls.Add(cbCustomer);
@@ -330,8 +328,6 @@
             // 
             // panelDetails
             // 
-            panelDetails.BackColor = Color.LightGray;
-            panelDetails.BorderStyle = BorderStyle.FixedSingle;
             panelDetails.Controls.Add(labelStatistics);
             panelDetails.Location = new Point(843, 396);
             panelDetails.Margin = new Padding(2, 3, 2, 3);
@@ -341,8 +337,6 @@
             // 
             // panelInvoiceInfo
             // 
-            panelInvoiceInfo.BackColor = Color.LightGray;
-            panelInvoiceInfo.BorderStyle = BorderStyle.FixedSingle;
             panelInvoiceInfo.Controls.Add(labelInvoiceNumberValue);
             panelInvoiceInfo.Controls.Add(labelInvoiceNumber);
             panelInvoiceInfo.Controls.Add(dateTimeDueDate);
@@ -356,8 +350,6 @@
             // 
             // panelWork
             // 
-            panelWork.BackColor = Color.LightGray;
-            panelWork.BorderStyle = BorderStyle.FixedSingle;
             panelWork.Controls.Add(labelWorkDetails);
             panelWork.Controls.Add(buttonRemoveWork);
             panelWork.Controls.Add(labelWork);
