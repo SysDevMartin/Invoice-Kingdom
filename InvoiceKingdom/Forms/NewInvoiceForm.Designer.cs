@@ -126,6 +126,7 @@
             cbCustomer.Name = "cbCustomer";
             cbCustomer.Size = new Size(489, 31);
             cbCustomer.TabIndex = 0;
+            cbCustomer.SelectedIndexChanged += cbCustomer_SelectedIndexChanged;
             // 
             // labelCustomer
             // 
@@ -253,7 +254,7 @@
             // 
             // buttonRemoveWork
             // 
-            buttonRemoveWork.Location = new Point(14, 242);
+            buttonRemoveWork.Location = new Point(14, 315);
             buttonRemoveWork.Margin = new Padding(4);
             buttonRemoveWork.Name = "buttonRemoveWork";
             buttonRemoveWork.Size = new Size(96, 33);
@@ -264,10 +265,10 @@
             // listWork
             // 
             listWork.FormattingEnabled = true;
-            listWork.Location = new Point(14, 115);
+            listWork.Location = new Point(14, 142);
             listWork.Margin = new Padding(4);
             listWork.Name = "listWork";
-            listWork.Size = new Size(758, 119);
+            listWork.Size = new Size(758, 165);
             listWork.TabIndex = 3;
             // 
             // buttonCreateInvoice
@@ -333,15 +334,17 @@
             panelCustomer.Location = new Point(15, 96);
             panelCustomer.Margin = new Padding(4);
             panelCustomer.Name = "panelCustomer";
-            panelCustomer.Size = new Size(794, 101);
+            panelCustomer.Size = new Size(794, 107);
             panelCustomer.TabIndex = 0;
             // 
             // labelCustomerDetails
             // 
-            labelCustomerDetails.Location = new Point(523, 24);
+            labelCustomerDetails.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelCustomerDetails.Location = new Point(515, 20);
             labelCustomerDetails.Name = "labelCustomerDetails";
-            labelCustomerDetails.Size = new Size(249, 49);
+            labelCustomerDetails.Size = new Size(265, 72);
             labelCustomerDetails.TabIndex = 4;
+            labelCustomerDetails.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // panelDetails
             // 
@@ -382,9 +385,9 @@
             // 
             // labelWorkDetails
             // 
-            labelWorkDetails.Location = new Point(14, 303);
+            labelWorkDetails.Location = new Point(14, 81);
             labelWorkDetails.Name = "labelWorkDetails";
-            labelWorkDetails.Size = new Size(758, 49);
+            labelWorkDetails.Size = new Size(758, 57);
             labelWorkDetails.TabIndex = 7;
             labelWorkDetails.TextAlign = ContentAlignment.MiddleLeft;
             // 

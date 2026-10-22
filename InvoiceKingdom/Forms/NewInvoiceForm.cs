@@ -1,5 +1,6 @@
 ﻿using InvoiceKingdom.Data;
 using InvoiceKingdom.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +13,34 @@ namespace InvoiceKingdom
 {
     public partial class NewInvoiceForm : Form
     {
+        private List<Customer> customers = [];
+
+        private void LoadCustomers()
+        {
+            using InvoiceKingdomContext dbContext = new();
+            customers = Customer.GetAllCustomers(dbContext).ToList();
+            foreach (var customer in customers)
+            {
+                var customerText = $"{customer.GetFullName()} ({customer.StreetAddress})";
+                cbCustomer.Items.Add(customerText);
+            }
+        }
+
+        private void LoadCustomerDetails(Customer customer)
+        {
+            using InvoiceKingdomContext dbContext = new();
+            var latestInvoice = customer.GetLatestInvoice(dbContext);
+
+            if (latestInvoice != null)
+            {
+                labelCustomerDetails.Text = $"Förra fakturan för kunden är {latestInvoice.InvoiceNumber}.";
+            }
+            else
+            {
+                labelCustomerDetails.Text = "Kunden har ingen tidigare faktura.";
+            }
+        }
+
         public NewInvoiceForm()
         {
             InitializeComponent();
@@ -37,13 +66,9 @@ namespace InvoiceKingdom
                 checkBoxAutoPrint,
                 checkBoxAutoOpen
             ]);
+            labelCustomerDetails.ForeColor = Theme.LabelDetailsForeColor;
 
-            using InvoiceKingdomContext context = new();
-            var customers = Customer.GetAllCustomers(context);
-            foreach (var customer in customers)
-            {
-                cbCustomer.Items.Add(customer.GetFullName());
-            }
+            LoadCustomers();
         }
 
         private void exitAppMenuItem_Click(object sender, EventArgs e)
@@ -74,6 +99,16 @@ namespace InvoiceKingdom
                 reference,
                 invoiceWork
                 );*/
+        }
+
+        private void cbCustomer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCustomer.Items.Count > 0)
+            {
+                LoadCustomerDetails(customers[cbCustomer.SelectedIndex]);
+                cbCustomer.Enabled = false;
+                cbWork.Focus();
+            }
         }
     }
 }
