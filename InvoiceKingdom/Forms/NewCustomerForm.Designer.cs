@@ -289,6 +289,7 @@
             buttonAddCustomer.TabIndex = 4;
             buttonAddCustomer.Text = "Lägg till kunden";
             buttonAddCustomer.UseVisualStyleBackColor = true;
+            buttonAddCustomer.Click += buttonAddCustomer_Click;
             // 
             // NewCustomerForm
             // 

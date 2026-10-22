@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InvoiceKingdom.Data;
+using InvoiceKingdom.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,6 +39,33 @@ namespace InvoiceKingdom
                 buttonAddCustomer
                 ]);
             labelWorkTypesDetails.ForeColor = Theme.LabelDetailsForeColor;
+        }
+
+        private void buttonAddCustomer_Click(object sender, EventArgs e)
+        {
+            var firstName = textFirstName.Text;
+            var lastName = textLastName.Text;
+            var personalIdentityNumber = textPersonalIdentityNumber.Text;
+            var streetAddress = textStreetAddress.Text;
+            var postalCode = textPostalCode.Text;
+            var city = textCity.Text;
+            var emailAddress = textEmailAddress.Text;
+            var phoneNumber = textPhoneNumber.Text;
+
+            using InvoiceKingdomContext context = new();
+            Customer.CreateCustomer(
+                context,
+                firstName,
+                lastName,
+                personalIdentityNumber,
+                streetAddress,
+                postalCode,
+                city,
+                emailAddress,
+                phoneNumber
+                );
+
+            DialogResult = DialogResult.OK;
         }
     }
 }
