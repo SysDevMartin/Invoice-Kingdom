@@ -7,6 +7,7 @@ namespace InvoiceKingdom.Models
 {
     internal class WorkType
     {
+        #region Database fields
         public int Id { get; set; }
 
         public required string Name { get; set; }
@@ -14,5 +15,6 @@ namespace InvoiceKingdom.Models
         public decimal VatRate { get; set; }
 
         public decimal TexReductionRate { get; set; }
+        #endregion
     }
 }
