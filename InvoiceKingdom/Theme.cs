@@ -7,38 +7,47 @@ namespace InvoiceKingdom
     internal class Theme
     {
         // Form.
-        private static readonly Color FormForeColor = Color.Black;
-        private static readonly Color FormBackColor = Color.Gainsboro;
+        public static readonly Color FormForeColor = Color.Black;
+        public static readonly Color FormBackColor = Color.Gainsboro;
+        public static readonly Color FormDetailsLabelForeColor = Color.DimGray;
+
+        // Label.
+        public static readonly Color LabelDetailsForeColor = Color.FromArgb(64, 64, 64);
 
         // Panel.
-        private static readonly Color PanelForeColor = Color.Black;
-        private static readonly Color PanelBackColor = Color.LightGray;
-        private static readonly BorderStyle PanelBorderStyle = BorderStyle.FixedSingle;
+        public static readonly Color PanelForeColor = Color.Black;
+        public static readonly Color PanelBackColor = Color.LightGray;
+        public static readonly BorderStyle PanelBorderStyle = BorderStyle.FixedSingle;
 
         // Control.
-        private static readonly Color ControlDefaultForeColor = Color.Black;
-        private static readonly Color ControlDefaultBackColor = Color.White;
+        public static readonly Color ControlDefaultForeColor = Color.Black;
+        public static readonly Color ControlDefaultBackColor = Color.White;
 
         // TextBox.
-        private static readonly BorderStyle TextboxBorderStyle = BorderStyle.FixedSingle;
+        public static readonly BorderStyle TextboxBorderStyle = BorderStyle.FixedSingle;
 
         // ListBox.
-        private static readonly BorderStyle ListBoxBorderStyle = BorderStyle.FixedSingle;
+        public static readonly BorderStyle ListBoxBorderStyle = BorderStyle.FixedSingle;
 
         // Button.
-        private static readonly Color ButtonForeColor = Color.Black;
-        private static readonly Color ButtonBackColor = Color.WhiteSmoke;
-        private static readonly FlatStyle ButtonFlatStyle = FlatStyle.Flat;
+        public static readonly Color ButtonForeColor = Color.Black;
+        public static readonly Color ButtonBackColor = Color.WhiteSmoke;
+        public static readonly FlatStyle ButtonFlatStyle = FlatStyle.Flat;
 
         // CheckBox.
-        private static readonly Color CheckboxForeColor = Color.Black;
-        private static readonly Color CheckboxBackColor = Color.Transparent;
-        private static readonly FlatStyle CheckboxFlatStyle = FlatStyle.Standard;
+        public static readonly Color CheckboxForeColor = Color.Black;
+        public static readonly Color CheckboxBackColor = Color.Transparent;
+        public static readonly FlatStyle CheckboxFlatStyle = FlatStyle.Standard;
 
-        public static void SetFormStyle(Form form)
+        public static void SetFormStyle(Form form, Label formDetailsLabel = null!)
         {
             form.ForeColor = FormForeColor;
             form.BackColor = FormBackColor;
+
+            if (formDetailsLabel != null)
+            {
+                formDetailsLabel.ForeColor = FormDetailsLabelForeColor;
+            }
         }
 
         public static void SetPanelStyle(Panel[] panels)
@@ -65,6 +74,10 @@ namespace InvoiceKingdom
                 else if (control is ListBox)
                 {
                     ((ListBox)control).BorderStyle = ListBoxBorderStyle;
+                }
+                else if (control is CheckedListBox)
+                {
+                    ((CheckedListBox)control).BorderStyle = ListBoxBorderStyle;
                 }
                 else if (control is Button)
                 {
