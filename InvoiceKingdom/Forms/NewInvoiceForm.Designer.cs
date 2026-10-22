@@ -1,6 +1,6 @@
 ﻿namespace InvoiceKingdom
 {
-    partial class NewInvoice
+    partial class NewInvoiceForm
     {
         /// <summary>
         /// Required designer variable.
@@ -59,6 +59,8 @@
             panelInvoiceInfo = new Panel();
             panelWork = new Panel();
             labelWorkDetails = new Label();
+            customerMenuItem = new ToolStripMenuItem();
+            newCustomerMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             panelInvoiceActions.SuspendLayout();
             panelCustomer.SuspendLayout();
@@ -79,7 +81,7 @@
             // 
             // menuStrip
             // 
-            menuStrip.Items.AddRange(new ToolStripItem[] { applicationMenuItem });
+            menuStrip.Items.AddRange(new ToolStripItem[] { applicationMenuItem, customerMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(8, 3, 0, 3);
@@ -97,7 +99,7 @@
             // exitAppMenuItem
             // 
             exitAppMenuItem.Name = "exitAppMenuItem";
-            exitAppMenuItem.Size = new Size(113, 22);
+            exitAppMenuItem.Size = new Size(180, 22);
             exitAppMenuItem.Text = "Avsluta";
             exitAppMenuItem.Click += exitAppMenuItem_Click;
             // 
@@ -371,6 +373,20 @@
             labelWorkDetails.TabIndex = 7;
             labelWorkDetails.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // customerMenuItem
+            // 
+            customerMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newCustomerMenuItem });
+            customerMenuItem.Name = "customerMenuItem";
+            customerMenuItem.Size = new Size(57, 19);
+            customerMenuItem.Text = "Kunder";
+            // 
+            // newCustomerMenuItem
+            // 
+            newCustomerMenuItem.Name = "newCustomerMenuItem";
+            newCustomerMenuItem.Size = new Size(180, 22);
+            newCustomerMenuItem.Text = "Ny kund";
+            newCustomerMenuItem.Click += newCustomerMenuItem_Click;
+            // 
             // NewInvoice
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
@@ -443,5 +459,7 @@
         private Label labelWorkDetails;
         private Label labelCustomerDetails;
         private Button buttonResetInvoice;
+        private ToolStripMenuItem customerMenuItem;
+        private ToolStripMenuItem newCustomerMenuItem;
     }
 }

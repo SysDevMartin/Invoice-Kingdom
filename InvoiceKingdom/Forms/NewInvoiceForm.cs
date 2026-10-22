@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InvoiceKingdom
 {
-    public partial class NewInvoice : Form
+    public partial class NewInvoiceForm : Form
     {
-        public NewInvoice()
+        public NewInvoiceForm()
         {
             InitializeComponent();
         }
@@ -49,6 +49,12 @@ namespace InvoiceKingdom
         private void exitAppMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void newCustomerMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new NewCustomerForm();
+            form.ShowDialog();
         }
     }
 }
