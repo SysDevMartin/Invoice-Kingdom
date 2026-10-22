@@ -32,6 +32,8 @@
             menuStrip = new MenuStrip();
             applicationMenuItem = new ToolStripMenuItem();
             exitAppMenuItem = new ToolStripMenuItem();
+            customerMenuItem = new ToolStripMenuItem();
+            newCustomerMenuItem = new ToolStripMenuItem();
             cbCustomer = new ComboBox();
             labelCustomer = new Label();
             labelWork = new Label();
@@ -59,8 +61,6 @@
             panelInvoiceInfo = new Panel();
             panelWork = new Panel();
             labelWorkDetails = new Label();
-            customerMenuItem = new ToolStripMenuItem();
-            newCustomerMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             panelInvoiceActions.SuspendLayout();
             panelCustomer.SuspendLayout();
@@ -99,9 +99,23 @@
             // exitAppMenuItem
             // 
             exitAppMenuItem.Name = "exitAppMenuItem";
-            exitAppMenuItem.Size = new Size(180, 22);
+            exitAppMenuItem.Size = new Size(113, 22);
             exitAppMenuItem.Text = "Avsluta";
             exitAppMenuItem.Click += exitAppMenuItem_Click;
+            // 
+            // customerMenuItem
+            // 
+            customerMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newCustomerMenuItem });
+            customerMenuItem.Name = "customerMenuItem";
+            customerMenuItem.Size = new Size(57, 19);
+            customerMenuItem.Text = "Kunder";
+            // 
+            // newCustomerMenuItem
+            // 
+            newCustomerMenuItem.Name = "newCustomerMenuItem";
+            newCustomerMenuItem.Size = new Size(180, 22);
+            newCustomerMenuItem.Text = "Lägg till ny kund";
+            newCustomerMenuItem.Click += newCustomerMenuItem_Click;
             // 
             // cbCustomer
             // 
@@ -373,21 +387,7 @@
             labelWorkDetails.TabIndex = 7;
             labelWorkDetails.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // customerMenuItem
-            // 
-            customerMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newCustomerMenuItem });
-            customerMenuItem.Name = "customerMenuItem";
-            customerMenuItem.Size = new Size(57, 19);
-            customerMenuItem.Text = "Kunder";
-            // 
-            // newCustomerMenuItem
-            // 
-            newCustomerMenuItem.Name = "newCustomerMenuItem";
-            newCustomerMenuItem.Size = new Size(180, 22);
-            newCustomerMenuItem.Text = "Ny kund";
-            newCustomerMenuItem.Click += newCustomerMenuItem_Click;
-            // 
-            // NewInvoice
+            // NewInvoiceForm
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -405,7 +405,7 @@
             MainMenuStrip = menuStrip;
             Margin = new Padding(4);
             MaximizeBox = false;
-            Name = "NewInvoice";
+            Name = "NewInvoiceForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Invoice Kingdom";
             Load += NewInvoice_Load;
