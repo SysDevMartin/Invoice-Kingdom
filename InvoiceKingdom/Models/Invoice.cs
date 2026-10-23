@@ -30,7 +30,7 @@ namespace InvoiceKingdom.Models
 
         public required ICollection<InvoiceWork> InvoiceWork { get; set; }
 
-        public DateTime Created { get; set; }
+        public DateTime Created { get; set; } = DateTime.Now;
         #endregion
 
         public static void CreateInvoice(
