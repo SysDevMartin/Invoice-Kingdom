@@ -14,5 +14,17 @@ namespace InvoiceKingdom.Forms
         {
             InitializeComponent();
         }
+
+        private void NewWorkTypeForm_Load(object sender, EventArgs e)
+        {
+            Theme.SetFormStyle(this, labelFormDetails);
+            Theme.SetPanelStyle([panelProperties]);
+            Theme.SetControlStyle([
+                textName,
+                textVatRate,
+                textTaxReductionRate,
+                buttonAddWorkType
+                ]);
+        }
     }
 }
