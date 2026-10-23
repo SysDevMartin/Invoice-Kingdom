@@ -15,6 +15,8 @@ namespace InvoiceKingdom.Models
         public decimal VatRate { get; set; }
 
         public decimal TexReductionRate { get; set; }
+
+        public bool IsHidden { get; set; } = false;
         #endregion
     }
 }

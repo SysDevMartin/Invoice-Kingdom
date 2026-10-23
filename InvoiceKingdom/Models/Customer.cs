@@ -30,7 +30,9 @@ namespace InvoiceKingdom.Models
 
         public ICollection<WorkType> WorkTypes { get; set; } = null!;
 
-        public DateTime Created { get; set; }
+        public DateTime Created { get; set; } = DateTime.Now;
+
+        public bool IsHidden { get; set; } = false;
         #endregion
 
         public string GetFullName()
