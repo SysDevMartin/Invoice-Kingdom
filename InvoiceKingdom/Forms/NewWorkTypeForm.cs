@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InvoiceKingdom.Data;
+using InvoiceKingdom.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +27,23 @@ namespace InvoiceKingdom.Forms
                 textTaxReductionRate,
                 buttonAddWorkType
                 ]);
+        }
+
+        private void buttonAddWorkType_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var name = textName.Text.Trim();
+                var vatRate = decimal.Parse(textVatRate.Text.Trim()) / 100M;
+                var taxReductionRate = decimal.Parse(textTaxReductionRate.Text.Trim()) / 100M;
+                using InvoiceKingdomContext context = new();
+                WorkType.CreateWorkType(context, name, vatRate, taxReductionRate);
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
         }
     }
 }

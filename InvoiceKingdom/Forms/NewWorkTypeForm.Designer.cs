@@ -154,6 +154,7 @@
             buttonAddWorkType.TabIndex = 1;
             buttonAddWorkType.Text = "Lägg till arbetstypen";
             buttonAddWorkType.UseVisualStyleBackColor = true;
+            buttonAddWorkType.Click += buttonAddWorkType_Click;
             // 
             // NewWorkTypeForm
             // 
