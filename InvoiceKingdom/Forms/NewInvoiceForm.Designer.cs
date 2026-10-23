@@ -34,6 +34,8 @@
             exitAppMenuItem = new ToolStripMenuItem();
             customerMenuItem = new ToolStripMenuItem();
             newCustomerMenuItem = new ToolStripMenuItem();
+            workTypeMenuItem = new ToolStripMenuItem();
+            newWorkTypeMenuItem = new ToolStripMenuItem();
             cbCustomer = new ComboBox();
             labelCustomer = new Label();
             labelWork = new Label();
@@ -61,8 +63,6 @@
             panelInvoiceInfo = new Panel();
             panelWork = new Panel();
             labelWorkDetails = new Label();
-            workTypeMenuItem = new ToolStripMenuItem();
-            newWorkTypeMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             panelInvoiceActions.SuspendLayout();
             panelCustomer.SuspendLayout();
@@ -115,9 +115,23 @@
             // newCustomerMenuItem
             // 
             newCustomerMenuItem.Name = "newCustomerMenuItem";
-            newCustomerMenuItem.Size = new Size(180, 22);
+            newCustomerMenuItem.Size = new Size(162, 22);
             newCustomerMenuItem.Text = "Lägg till ny kund";
             newCustomerMenuItem.Click += newCustomerMenuItem_Click;
+            // 
+            // workTypeMenuItem
+            // 
+            workTypeMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newWorkTypeMenuItem });
+            workTypeMenuItem.Name = "workTypeMenuItem";
+            workTypeMenuItem.Size = new Size(80, 19);
+            workTypeMenuItem.Text = "Arbetstyper";
+            // 
+            // newWorkTypeMenuItem
+            // 
+            newWorkTypeMenuItem.Name = "newWorkTypeMenuItem";
+            newWorkTypeMenuItem.Size = new Size(184, 22);
+            newWorkTypeMenuItem.Text = "Lägg till ny arbetstyp";
+            newWorkTypeMenuItem.Click += newWorkTypeMenuItem_Click;
             // 
             // cbCustomer
             // 
@@ -213,7 +227,7 @@
             textReference.Location = new Point(15, 211);
             textReference.Margin = new Padding(4);
             textReference.Name = "textReference";
-            textReference.Size = new Size(387, 30);
+            textReference.Size = new Size(401, 30);
             textReference.TabIndex = 1;
             // 
             // labelInvoiceNumberValue
@@ -232,7 +246,7 @@
             dateTimeDueDate.Location = new Point(17, 123);
             dateTimeDueDate.Margin = new Padding(4);
             dateTimeDueDate.Name = "dateTimeDueDate";
-            dateTimeDueDate.Size = new Size(385, 30);
+            dateTimeDueDate.Size = new Size(399, 30);
             dateTimeDueDate.TabIndex = 0;
             // 
             // labelStatistics
@@ -256,7 +270,7 @@
             // 
             // buttonRemoveWork
             // 
-            buttonRemoveWork.Location = new Point(14, 315);
+            buttonRemoveWork.Location = new Point(14, 269);
             buttonRemoveWork.Margin = new Padding(4);
             buttonRemoveWork.Name = "buttonRemoveWork";
             buttonRemoveWork.Size = new Size(96, 33);
@@ -270,7 +284,7 @@
             listWork.Location = new Point(14, 142);
             listWork.Margin = new Padding(4);
             listWork.Name = "listWork";
-            listWork.Size = new Size(758, 165);
+            listWork.Size = new Size(758, 119);
             listWork.TabIndex = 3;
             // 
             // buttonCreateInvoice
@@ -336,17 +350,16 @@
             panelCustomer.Location = new Point(15, 96);
             panelCustomer.Margin = new Padding(4);
             panelCustomer.Name = "panelCustomer";
-            panelCustomer.Size = new Size(794, 107);
+            panelCustomer.Size = new Size(794, 161);
             panelCustomer.TabIndex = 0;
             // 
             // labelCustomerDetails
             // 
             labelCustomerDetails.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelCustomerDetails.Location = new Point(515, 20);
+            labelCustomerDetails.Location = new Point(14, 81);
             labelCustomerDetails.Name = "labelCustomerDetails";
-            labelCustomerDetails.Size = new Size(265, 72);
-            labelCustomerDetails.TabIndex = 4;
-            labelCustomerDetails.TextAlign = ContentAlignment.MiddleLeft;
+            labelCustomerDetails.Size = new Size(758, 67);
+            labelCustomerDetails.TabIndex = 5;
             // 
             // panelDetails
             // 
@@ -380,9 +393,9 @@
             panelWork.Controls.Add(listWork);
             panelWork.Controls.Add(textAmount);
             panelWork.Controls.Add(labelWorkAmount);
-            panelWork.Location = new Point(15, 238);
+            panelWork.Location = new Point(15, 293);
             panelWork.Name = "panelWork";
-            panelWork.Size = new Size(794, 369);
+            panelWork.Size = new Size(794, 314);
             panelWork.TabIndex = 1;
             // 
             // labelWorkDetails
@@ -392,20 +405,6 @@
             labelWorkDetails.Size = new Size(758, 57);
             labelWorkDetails.TabIndex = 7;
             labelWorkDetails.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // workTypeMenuItem
-            // 
-            workTypeMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newWorkTypeMenuItem });
-            workTypeMenuItem.Name = "workTypeMenuItem";
-            workTypeMenuItem.Size = new Size(80, 19);
-            workTypeMenuItem.Text = "Arbetstyper";
-            // 
-            // newWorkTypeMenuItem
-            // 
-            newWorkTypeMenuItem.Name = "newWorkTypeMenuItem";
-            newWorkTypeMenuItem.Size = new Size(184, 22);
-            newWorkTypeMenuItem.Text = "Lägg till ny arbetstyp";
-            newWorkTypeMenuItem.Click += newWorkTypeMenuItem_Click;
             // 
             // NewInvoiceForm
             // 
@@ -477,11 +476,11 @@
         private Panel panelInvoiceInfo;
         private Panel panelWork;
         private Label labelWorkDetails;
-        private Label labelCustomerDetails;
         private Button buttonResetInvoice;
         private ToolStripMenuItem customerMenuItem;
         private ToolStripMenuItem newCustomerMenuItem;
         private ToolStripMenuItem workTypeMenuItem;
         private ToolStripMenuItem newWorkTypeMenuItem;
+        private Label labelCustomerDetails;
     }
 }

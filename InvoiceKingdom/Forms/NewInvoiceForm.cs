@@ -30,16 +30,14 @@ namespace InvoiceKingdom
         private void LoadCustomerDetails(Customer customer)
         {
             using InvoiceKingdomContext dbContext = new();
-            var latestInvoice = customer.GetLatestInvoice(dbContext);
 
-            if (latestInvoice != null)
-            {
-                labelCustomerDetails.Text = $"Förra fakturan för kunden är {latestInvoice.InvoiceNumber}.";
-            }
-            else
-            {
-                labelCustomerDetails.Text = "Kunden har ingen tidigare faktura.";
-            }
+            var latestInvoice = customer.GetLatestInvoice(dbContext);
+            string latestInvoiceText = latestInvoice != null ? $"{latestInvoice.InvoiceNumber} ({latestInvoice.Reference})" : "Inga tidigare fakturor";
+
+            var addressText = $"{customer.StreetAddress}, {customer.PostalCode} {customer.City}";
+            var personalIdentityNumber = customer.PersonalIdentityNumber ?? "Inget personnummer";
+
+            labelCustomerDetails.Text = $"Adress: {addressText}\r\nPersonnummer: {personalIdentityNumber}\r\nSenaste fakturan: {latestInvoiceText}";
         }
 
         public NewInvoiceForm()
