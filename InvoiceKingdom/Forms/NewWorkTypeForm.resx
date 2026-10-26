@@ -117,4 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="labelFormDetails.Text" xml:space="preserve">
+    <value>Lägg till en ny arbetstyp som kan användas vid fakturering.
+För att koppla arbetstypen till en kund, redigera kunden som ska ha arbetstypen.
+
+En asterisk (*) vid ett fält betyder att det måste fyllas i.</value>
+  </data>
 </root>

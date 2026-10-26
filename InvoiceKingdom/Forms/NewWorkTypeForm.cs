@@ -12,6 +12,16 @@ namespace InvoiceKingdom.Forms
 {
     public partial class NewWorkTypeForm : Form
     {
+        private Dictionary<string, decimal> availableVatRates = new()
+        {
+            { "Standard (25%)", 0.25M },
+        };
+        private Dictionary<string, decimal> availableTaxReductionRates = new()
+        {
+            { "Ingen (0%)", 0 },
+            { "RUT-avdrag (25%)", 0.25M }
+        };
+
         public NewWorkTypeForm()
         {
             InitializeComponent();
@@ -23,10 +33,22 @@ namespace InvoiceKingdom.Forms
             Theme.SetPanelStyle([panelProperties]);
             Theme.SetControlStyle([
                 textName,
-                textVatRate,
-                textTaxReductionRate,
+                cbVatRate,
+                cbTaxReductionRate,
                 buttonAddWorkType
                 ]);
+
+            foreach (var item in availableVatRates)
+            {
+                cbVatRate.Items.Add(item.Key);
+            }
+            cbVatRate.SelectedIndex = 0;
+
+            foreach (var item in availableTaxReductionRates)
+            {
+                cbTaxReductionRate.Items.Add(item.Key);
+            }
+            cbTaxReductionRate.SelectedIndex = 0;
         }
 
         private void buttonAddWorkType_Click(object sender, EventArgs e)
@@ -34,10 +56,12 @@ namespace InvoiceKingdom.Forms
             try
             {
                 var name = textName.Text.Trim();
-                var vatRate = decimal.Parse(textVatRate.Text.Trim()) / 100M;
-                var taxReductionRate = decimal.Parse(textTaxReductionRate.Text.Trim()) / 100M;
+                var vatRateKey = cbVatRate.SelectedItem.ToString();
+                var vatRateValue = availableVatRates[vatRateKey];
+                var taxReductionRateKey = cbTaxReductionRate.SelectedItem.ToString();
+                var taxReductionRateValue = availableTaxReductionRates[taxReductionRateKey];
                 using InvoiceKingdomContext context = new();
-                WorkType.CreateWorkType(context, name, vatRate, taxReductionRate);
+                WorkType.CreateWorkType(context, name, vatRateValue, taxReductionRateValue);
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
