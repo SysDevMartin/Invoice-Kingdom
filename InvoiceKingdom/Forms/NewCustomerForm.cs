@@ -12,6 +12,8 @@ namespace InvoiceKingdom
 {
     public partial class NewCustomerForm : Form
     {
+        private List<WorkType> availableWorkTypes;
+
         public NewCustomerForm()
         {
             InitializeComponent();
@@ -39,6 +41,13 @@ namespace InvoiceKingdom
                 buttonAddCustomer
                 ]);
             labelWorkTypesDetails.ForeColor = Theme.LabelDetailsForeColor;
+
+            using InvoiceKingdomContext context = new();
+            availableWorkTypes = context.WorkTypes.Where(w => w.IsHidden == false).ToList();
+            foreach (var item in availableWorkTypes)
+            {
+                checkedListWorkTypes.Items.Add(item.Name);
+            }
         }
 
         private void buttonAddCustomer_Click(object sender, EventArgs e)
@@ -52,6 +61,13 @@ namespace InvoiceKingdom
             var emailAddress = textEmailAddress.Text;
             var phoneNumber = textPhoneNumber.Text;
 
+            var selectedWorkTypes = new List<WorkType>();
+            foreach (var item in checkedListWorkTypes.CheckedItems)
+            {
+                var addWorkType = availableWorkTypes.Where(w => w.Name == item.ToString()).First();
+                selectedWorkTypes.Add(addWorkType);
+            }
+
             using InvoiceKingdomContext context = new();
             Customer.CreateCustomer(
                 context,
@@ -62,7 +78,8 @@ namespace InvoiceKingdom
                 postalCode,
                 city,
                 emailAddress,
-                phoneNumber
+                phoneNumber,
+                selectedWorkTypes
                 );
 
             DialogResult = DialogResult.OK;

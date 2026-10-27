@@ -54,10 +54,12 @@
             checkedListWorkTypes = new CheckedListBox();
             labelWorkTypes = new Label();
             buttonAddCustomer = new Button();
+            panelFormHeader = new Panel();
             panelContactPerson.SuspendLayout();
             panelAddress.SuspendLayout();
             panelContactInfo.SuspendLayout();
             panelWorkTypes.SuspendLayout();
+            panelFormHeader.SuspendLayout();
             SuspendLayout();
             // 
             // panelContactPerson
@@ -68,7 +70,7 @@
             panelContactPerson.Controls.Add(labelLastName);
             panelContactPerson.Controls.Add(labelFirstName);
             panelContactPerson.Controls.Add(textFirstName);
-            panelContactPerson.Location = new Point(14, 131);
+            panelContactPerson.Location = new Point(14, 141);
             panelContactPerson.Name = "panelContactPerson";
             panelContactPerson.Size = new Size(456, 174);
             panelContactPerson.TabIndex = 0;
@@ -125,7 +127,7 @@
             // 
             labelFormTitle.AutoSize = true;
             labelFormTitle.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelFormTitle.Location = new Point(11, 10);
+            labelFormTitle.Location = new Point(10, 10);
             labelFormTitle.Name = "labelFormTitle";
             labelFormTitle.Size = new Size(105, 32);
             labelFormTitle.TabIndex = 20;
@@ -134,11 +136,11 @@
             // labelFormDetails
             // 
             labelFormDetails.AutoSize = true;
-            labelFormDetails.Location = new Point(14, 46);
+            labelFormDetails.Location = new Point(13, 45);
             labelFormDetails.Name = "labelFormDetails";
-            labelFormDetails.Size = new Size(724, 46);
+            labelFormDetails.Size = new Size(419, 69);
             labelFormDetails.TabIndex = 21;
-            labelFormDetails.Text = "Lägg till en ny kund i företaget. Du kan ändra alla uppgifter och arbetstyper senare vid behov.\r\nEn asterisk (*) vid ett fält betyder att det måste fyllas i.";
+            labelFormDetails.Text = "Lägg till en ny kund för att kunna fakturera den.\r\n\r\nEn asterisk (*) vid ett fält betyder att det måste fyllas i.";
             // 
             // panelAddress
             // 
@@ -148,7 +150,7 @@
             panelAddress.Controls.Add(textPostalCode);
             panelAddress.Controls.Add(labelStreetAddress);
             panelAddress.Controls.Add(textStreetAddress);
-            panelAddress.Location = new Point(510, 131);
+            panelAddress.Location = new Point(510, 141);
             panelAddress.Name = "panelAddress";
             panelAddress.Size = new Size(454, 174);
             panelAddress.TabIndex = 1;
@@ -207,7 +209,7 @@
             panelContactInfo.Controls.Add(labelPhoneNumber);
             panelContactInfo.Controls.Add(textEmailAddress);
             panelContactInfo.Controls.Add(labelEmailAddress);
-            panelContactInfo.Location = new Point(14, 340);
+            panelContactInfo.Location = new Point(14, 350);
             panelContactInfo.Name = "panelContactInfo";
             panelContactInfo.Size = new Size(456, 189);
             panelContactInfo.TabIndex = 2;
@@ -249,7 +251,7 @@
             panelWorkTypes.Controls.Add(labelWorkTypesDetails);
             panelWorkTypes.Controls.Add(checkedListWorkTypes);
             panelWorkTypes.Controls.Add(labelWorkTypes);
-            panelWorkTypes.Location = new Point(510, 340);
+            panelWorkTypes.Location = new Point(510, 350);
             panelWorkTypes.Name = "panelWorkTypes";
             panelWorkTypes.Size = new Size(454, 189);
             panelWorkTypes.TabIndex = 3;
@@ -266,6 +268,7 @@
             // 
             // checkedListWorkTypes
             // 
+            checkedListWorkTypes.CheckOnClick = true;
             checkedListWorkTypes.FormattingEnabled = true;
             checkedListWorkTypes.Location = new Point(17, 70);
             checkedListWorkTypes.Name = "checkedListWorkTypes";
@@ -283,7 +286,7 @@
             // 
             // buttonAddCustomer
             // 
-            buttonAddCustomer.Location = new Point(11, 562);
+            buttonAddCustomer.Location = new Point(11, 572);
             buttonAddCustomer.Name = "buttonAddCustomer";
             buttonAddCustomer.Size = new Size(212, 41);
             buttonAddCustomer.TabIndex = 4;
@@ -291,17 +294,25 @@
             buttonAddCustomer.UseVisualStyleBackColor = true;
             buttonAddCustomer.Click += buttonAddCustomer_Click;
             // 
+            // panelFormHeader
+            // 
+            panelFormHeader.Controls.Add(labelFormTitle);
+            panelFormHeader.Controls.Add(labelFormDetails);
+            panelFormHeader.Location = new Point(0, 0);
+            panelFormHeader.Name = "panelFormHeader";
+            panelFormHeader.Size = new Size(985, 128);
+            panelFormHeader.TabIndex = 22;
+            // 
             // NewCustomerForm
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(985, 621);
+            ClientSize = new Size(985, 631);
+            Controls.Add(panelFormHeader);
             Controls.Add(buttonAddCustomer);
             Controls.Add(panelWorkTypes);
             Controls.Add(panelContactInfo);
             Controls.Add(panelAddress);
-            Controls.Add(labelFormDetails);
-            Controls.Add(labelFormTitle);
             Controls.Add(panelContactPerson);
             Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -320,8 +331,9 @@
             panelContactInfo.PerformLayout();
             panelWorkTypes.ResumeLayout(false);
             panelWorkTypes.PerformLayout();
+            panelFormHeader.ResumeLayout(false);
+            panelFormHeader.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -353,5 +365,6 @@
         private Label labelWorkTypesDetails;
         private ListBox listBox1;
         private Button buttonAddCustomer;
+        private Panel panelFormHeader;
     }
 }
