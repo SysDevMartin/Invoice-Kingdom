@@ -9,6 +9,7 @@ namespace InvoiceKingdom.Models
     internal class WorkType
     {
         #region Database fields
+
         public int Id { get; set; }
 
         public required string Name { get; set; }
@@ -17,9 +18,12 @@ namespace InvoiceKingdom.Models
 
         public decimal TexReductionRate { get; set; }
 
+        public ICollection<Customer> Customers { get; set; } = null!;
+
         public DateTime Created { get; set; } = DateTime.Now;
 
         public bool IsHidden { get; set; } = false;
+
         #endregion
 
         public static void CreateWorkType(
@@ -29,9 +33,11 @@ namespace InvoiceKingdom.Models
             decimal taxReductionRate
             )
         {
+            // Trim values.
             name = name.Trim();
 
-            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException("name");
+            // Validate required values.
+            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
             if (vatRate < 0 || vatRate > 1) throw new ArgumentOutOfRangeException("vatRate");
             if (taxReductionRate < 0 || taxReductionRate > 1) throw new ArgumentOutOfRangeException("taxReductionRate");
 
@@ -47,9 +53,9 @@ namespace InvoiceKingdom.Models
                 context.WorkTypes.Add(workType);
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
     }

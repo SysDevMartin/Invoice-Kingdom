@@ -186,7 +186,7 @@
             // 
             // textAmount
             // 
-            textAmount.Location = new Point(523, 45);
+            textAmount.Location = new Point(523, 44);
             textAmount.Margin = new Padding(4);
             textAmount.Name = "textAmount";
             textAmount.Size = new Size(79, 30);
@@ -455,13 +455,11 @@
         private ComboBox cbWork;
         private Label labelWorkAmount;
         private TextBox textAmount;
-        private Label labelCostSum;
         private Button buttonAddWork;
         private Label labelDueDate;
         private Label labelReference;
         private TextBox textReference;
         private Label labelFormTitle;
-        private GroupBox groupWork;
         private Button buttonCreateInvoice;
         private Label labelStatistics;
         private DateTimePicker dateTimeDueDate;

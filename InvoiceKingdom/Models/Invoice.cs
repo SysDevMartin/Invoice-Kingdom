@@ -16,6 +16,7 @@ namespace InvoiceKingdom.Models
     internal class Invoice
     {
         #region Database fields
+
         public int Id { get; set; }
 
         public int InvoiceNumber { get; set; }
@@ -31,6 +32,7 @@ namespace InvoiceKingdom.Models
         public required ICollection<InvoiceWork> InvoiceWork { get; set; }
 
         public DateTime Created { get; set; } = DateTime.Now;
+
         #endregion
 
         public static void CreateInvoice(
@@ -39,20 +41,28 @@ namespace InvoiceKingdom.Models
             Customer customer,
             DateTime dueDate,
             string reference,
-            List<InvoiceWork> invoiceWork)
+            List<InvoiceWork> invoiceWork
+            )
         {
-            var invoice = new Invoice()
+            try
             {
-                InvoiceNumber = invoiceNumber,
-                Customer = customer,
-                DueDate = dueDate.Date,
-                Reference = reference,
-                State = State.Unpaid,
-                InvoiceWork = invoiceWork,
-                Created = DateTime.Now
-            };
-            context.Add(invoice);
-            context.SaveChanges();
+                var invoice = new Invoice()
+                {
+                    InvoiceNumber = invoiceNumber,
+                    Customer = customer,
+                    DueDate = dueDate.Date,
+                    Reference = reference,
+                    State = State.Unpaid,
+                    InvoiceWork = invoiceWork,
+                    Created = DateTime.Now
+                };
+                context.Add(invoice);
+                context.SaveChanges();
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public static IOrderedQueryable<Invoice> GetAllInvoices(InvoiceKingdomContext context)

@@ -52,37 +52,44 @@ namespace InvoiceKingdom
 
         private void buttonAddCustomer_Click(object sender, EventArgs e)
         {
-            var firstName = textFirstName.Text;
-            var lastName = textLastName.Text;
-            var personalIdentityNumber = textPersonalIdentityNumber.Text;
-            var streetAddress = textStreetAddress.Text;
-            var postalCode = textPostalCode.Text;
-            var city = textCity.Text;
-            var emailAddress = textEmailAddress.Text;
-            var phoneNumber = textPhoneNumber.Text;
-
-            var selectedWorkTypes = new List<WorkType>();
-            foreach (var item in checkedListWorkTypes.CheckedItems)
+            try
             {
-                var addWorkType = availableWorkTypes.Where(w => w.Name == item.ToString()).First();
-                selectedWorkTypes.Add(addWorkType);
+                var firstName = textFirstName.Text;
+                var lastName = textLastName.Text;
+                var personalIdentityNumber = textPersonalIdentityNumber.Text;
+                var streetAddress = textStreetAddress.Text;
+                var postalCode = textPostalCode.Text;
+                var city = textCity.Text;
+                var emailAddress = textEmailAddress.Text;
+                var phoneNumber = textPhoneNumber.Text;
+
+                var selectedWorkTypes = new List<WorkType>();
+                foreach (var item in checkedListWorkTypes.CheckedItems)
+                {
+                    var addWorkType = availableWorkTypes.First(w => w.Name == item.ToString());
+                    selectedWorkTypes.Add(addWorkType);
+                }
+
+                using InvoiceKingdomContext context = new();
+                Customer.CreateCustomer(
+                    context,
+                    firstName,
+                    lastName,
+                    personalIdentityNumber,
+                    streetAddress,
+                    postalCode,
+                    city,
+                    emailAddress,
+                    phoneNumber,
+                    selectedWorkTypes
+                    );
+
+                DialogResult = DialogResult.OK;
             }
-
-            using InvoiceKingdomContext context = new();
-            Customer.CreateCustomer(
-                context,
-                firstName,
-                lastName,
-                personalIdentityNumber,
-                streetAddress,
-                postalCode,
-                city,
-                emailAddress,
-                phoneNumber,
-                selectedWorkTypes
-                );
-
-            DialogResult = DialogResult.OK;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

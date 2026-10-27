@@ -363,7 +363,6 @@
         private Label labelWorkTypes;
         private CheckedListBox checkedListWorkTypes;
         private Label labelWorkTypesDetails;
-        private ListBox listBox1;
         private Button buttonAddCustomer;
         private Panel panelFormHeader;
     }
