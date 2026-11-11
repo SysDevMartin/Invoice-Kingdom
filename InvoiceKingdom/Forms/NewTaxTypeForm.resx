@@ -119,7 +119,7 @@
   </resheader>
   <data name="labelFormDetails.Text" xml:space="preserve">
     <value>Lägg till en ny skattetyp som kan användas till arbetstyper vid fakturering.
-För att koppla skattetypen till en arbetstyp, redigera arbetsypen som ska ha skattetypen.
+Redigera en arbetstyp för att koppla skattetypen till arbetstypen.
 
 En asterisk (*) vid ett fält betyder att det måste fyllas i.</value>
   </data>
