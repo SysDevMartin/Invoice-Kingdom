@@ -1,6 +1,6 @@
 ﻿namespace InvoiceKingdom
 {
-    partial class NewInvoice
+    partial class NewInvoiceForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,10 @@
             menuStrip = new MenuStrip();
             applicationMenuItem = new ToolStripMenuItem();
             exitAppMenuItem = new ToolStripMenuItem();
+            customerMenuItem = new ToolStripMenuItem();
+            newCustomerMenuItem = new ToolStripMenuItem();
+            workTypeMenuItem = new ToolStripMenuItem();
+            newWorkTypeMenuItem = new ToolStripMenuItem();
             cbCustomer = new ComboBox();
             labelCustomer = new Label();
             labelWork = new Label();
@@ -79,7 +83,7 @@
             // 
             // menuStrip
             // 
-            menuStrip.Items.AddRange(new ToolStripItem[] { applicationMenuItem });
+            menuStrip.Items.AddRange(new ToolStripItem[] { applicationMenuItem, customerMenuItem, workTypeMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(8, 3, 0, 3);
@@ -101,6 +105,34 @@
             exitAppMenuItem.Text = "Avsluta";
             exitAppMenuItem.Click += exitAppMenuItem_Click;
             // 
+            // customerMenuItem
+            // 
+            customerMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newCustomerMenuItem });
+            customerMenuItem.Name = "customerMenuItem";
+            customerMenuItem.Size = new Size(57, 19);
+            customerMenuItem.Text = "Kunder";
+            // 
+            // newCustomerMenuItem
+            // 
+            newCustomerMenuItem.Name = "newCustomerMenuItem";
+            newCustomerMenuItem.Size = new Size(162, 22);
+            newCustomerMenuItem.Text = "Lägg till ny kund";
+            newCustomerMenuItem.Click += newCustomerMenuItem_Click;
+            // 
+            // workTypeMenuItem
+            // 
+            workTypeMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newWorkTypeMenuItem });
+            workTypeMenuItem.Name = "workTypeMenuItem";
+            workTypeMenuItem.Size = new Size(80, 19);
+            workTypeMenuItem.Text = "Arbetstyper";
+            // 
+            // newWorkTypeMenuItem
+            // 
+            newWorkTypeMenuItem.Name = "newWorkTypeMenuItem";
+            newWorkTypeMenuItem.Size = new Size(184, 22);
+            newWorkTypeMenuItem.Text = "Lägg till ny arbetstyp";
+            newWorkTypeMenuItem.Click += newWorkTypeMenuItem_Click;
+            // 
             // cbCustomer
             // 
             cbCustomer.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -110,6 +142,7 @@
             cbCustomer.Name = "cbCustomer";
             cbCustomer.Size = new Size(489, 31);
             cbCustomer.TabIndex = 0;
+            cbCustomer.SelectedIndexChanged += cbCustomer_SelectedIndexChanged;
             // 
             // labelCustomer
             // 
@@ -135,16 +168,16 @@
             // 
             cbWork.DropDownStyle = ComboBoxStyle.DropDownList;
             cbWork.FormattingEnabled = true;
-            cbWork.Location = new Point(14, 45);
+            cbWork.Location = new Point(14, 44);
             cbWork.Margin = new Padding(4);
             cbWork.Name = "cbWork";
-            cbWork.Size = new Size(496, 31);
+            cbWork.Size = new Size(489, 31);
             cbWork.TabIndex = 0;
             // 
             // labelWorkAmount
             // 
             labelWorkAmount.AutoSize = true;
-            labelWorkAmount.Location = new Point(543, 16);
+            labelWorkAmount.Location = new Point(523, 18);
             labelWorkAmount.Margin = new Padding(4, 0, 4, 0);
             labelWorkAmount.Name = "labelWorkAmount";
             labelWorkAmount.Size = new Size(50, 23);
@@ -153,18 +186,18 @@
             // 
             // textAmount
             // 
-            textAmount.Location = new Point(543, 43);
+            textAmount.Location = new Point(523, 44);
             textAmount.Margin = new Padding(4);
             textAmount.Name = "textAmount";
-            textAmount.Size = new Size(82, 30);
+            textAmount.Size = new Size(79, 30);
             textAmount.TabIndex = 1;
             // 
             // buttonAddWork
             // 
-            buttonAddWork.Location = new Point(651, 41);
+            buttonAddWork.Location = new Point(620, 42);
             buttonAddWork.Margin = new Padding(4);
             buttonAddWork.Name = "buttonAddWork";
-            buttonAddWork.Size = new Size(121, 35);
+            buttonAddWork.Size = new Size(152, 35);
             buttonAddWork.TabIndex = 2;
             buttonAddWork.Text = "Lägg till";
             buttonAddWork.UseVisualStyleBackColor = true;
@@ -194,7 +227,7 @@
             textReference.Location = new Point(15, 211);
             textReference.Margin = new Padding(4);
             textReference.Name = "textReference";
-            textReference.Size = new Size(387, 30);
+            textReference.Size = new Size(401, 30);
             textReference.TabIndex = 1;
             // 
             // labelInvoiceNumberValue
@@ -213,7 +246,7 @@
             dateTimeDueDate.Location = new Point(17, 123);
             dateTimeDueDate.Margin = new Padding(4);
             dateTimeDueDate.Name = "dateTimeDueDate";
-            dateTimeDueDate.Size = new Size(385, 30);
+            dateTimeDueDate.Size = new Size(399, 30);
             dateTimeDueDate.TabIndex = 0;
             // 
             // labelStatistics
@@ -237,7 +270,7 @@
             // 
             // buttonRemoveWork
             // 
-            buttonRemoveWork.Location = new Point(14, 242);
+            buttonRemoveWork.Location = new Point(14, 269);
             buttonRemoveWork.Margin = new Padding(4);
             buttonRemoveWork.Name = "buttonRemoveWork";
             buttonRemoveWork.Size = new Size(96, 33);
@@ -248,7 +281,7 @@
             // listWork
             // 
             listWork.FormattingEnabled = true;
-            listWork.Location = new Point(14, 115);
+            listWork.Location = new Point(14, 142);
             listWork.Margin = new Padding(4);
             listWork.Name = "listWork";
             listWork.Size = new Size(758, 119);
@@ -262,7 +295,8 @@
             buttonCreateInvoice.Size = new Size(225, 46);
             buttonCreateInvoice.TabIndex = 0;
             buttonCreateInvoice.Text = "Skapa fakturan";
-            buttonCreateInvoice.UseVisualStyleBackColor = true;
+            buttonCreateInvoice.UseVisualStyleBackColor = false;
+            buttonCreateInvoice.Click += buttonCreateInvoice_Click;
             // 
             // checkBoxAutoPrint
             // 
@@ -310,28 +344,25 @@
             // 
             // panelCustomer
             // 
-            panelCustomer.BackColor = Color.LightGray;
-            panelCustomer.BorderStyle = BorderStyle.FixedSingle;
             panelCustomer.Controls.Add(labelCustomerDetails);
             panelCustomer.Controls.Add(labelCustomer);
             panelCustomer.Controls.Add(cbCustomer);
             panelCustomer.Location = new Point(15, 96);
             panelCustomer.Margin = new Padding(4);
             panelCustomer.Name = "panelCustomer";
-            panelCustomer.Size = new Size(794, 101);
+            panelCustomer.Size = new Size(794, 161);
             panelCustomer.TabIndex = 0;
             // 
             // labelCustomerDetails
             // 
-            labelCustomerDetails.Location = new Point(523, 24);
+            labelCustomerDetails.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelCustomerDetails.Location = new Point(14, 81);
             labelCustomerDetails.Name = "labelCustomerDetails";
-            labelCustomerDetails.Size = new Size(249, 49);
-            labelCustomerDetails.TabIndex = 4;
+            labelCustomerDetails.Size = new Size(758, 67);
+            labelCustomerDetails.TabIndex = 5;
             // 
             // panelDetails
             // 
-            panelDetails.BackColor = Color.LightGray;
-            panelDetails.BorderStyle = BorderStyle.FixedSingle;
             panelDetails.Controls.Add(labelStatistics);
             panelDetails.Location = new Point(843, 396);
             panelDetails.Margin = new Padding(2, 3, 2, 3);
@@ -341,8 +372,6 @@
             // 
             // panelInvoiceInfo
             // 
-            panelInvoiceInfo.BackColor = Color.LightGray;
-            panelInvoiceInfo.BorderStyle = BorderStyle.FixedSingle;
             panelInvoiceInfo.Controls.Add(labelInvoiceNumberValue);
             panelInvoiceInfo.Controls.Add(labelInvoiceNumber);
             panelInvoiceInfo.Controls.Add(dateTimeDueDate);
@@ -356,8 +385,6 @@
             // 
             // panelWork
             // 
-            panelWork.BackColor = Color.LightGray;
-            panelWork.BorderStyle = BorderStyle.FixedSingle;
             panelWork.Controls.Add(labelWorkDetails);
             panelWork.Controls.Add(buttonRemoveWork);
             panelWork.Controls.Add(labelWork);
@@ -366,30 +393,30 @@
             panelWork.Controls.Add(listWork);
             panelWork.Controls.Add(textAmount);
             panelWork.Controls.Add(labelWorkAmount);
-            panelWork.Location = new Point(15, 238);
+            panelWork.Location = new Point(15, 293);
             panelWork.Name = "panelWork";
-            panelWork.Size = new Size(794, 369);
+            panelWork.Size = new Size(794, 314);
             panelWork.TabIndex = 1;
             // 
             // labelWorkDetails
             // 
-            labelWorkDetails.Location = new Point(14, 303);
+            labelWorkDetails.Location = new Point(14, 81);
             labelWorkDetails.Name = "labelWorkDetails";
-            labelWorkDetails.Size = new Size(758, 49);
+            labelWorkDetails.Size = new Size(758, 57);
             labelWorkDetails.TabIndex = 7;
             labelWorkDetails.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // NewInvoice
+            // NewInvoiceForm
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1300, 707);
+            Controls.Add(labelFormTitle);
             Controls.Add(panelWork);
             Controls.Add(panelInvoiceInfo);
             Controls.Add(panelDetails);
             Controls.Add(panelCustomer);
-            Controls.Add(labelFormTitle);
             Controls.Add(panelInvoiceActions);
             Controls.Add(menuStrip);
             Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -397,7 +424,7 @@
             MainMenuStrip = menuStrip;
             Margin = new Padding(4);
             MaximizeBox = false;
-            Name = "NewInvoice";
+            Name = "NewInvoiceForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Invoice Kingdom";
             Load += NewInvoice_Load;
@@ -428,13 +455,11 @@
         private ComboBox cbWork;
         private Label labelWorkAmount;
         private TextBox textAmount;
-        private Label labelCostSum;
         private Button buttonAddWork;
         private Label labelDueDate;
         private Label labelReference;
         private TextBox textReference;
         private Label labelFormTitle;
-        private GroupBox groupWork;
         private Button buttonCreateInvoice;
         private Label labelStatistics;
         private DateTimePicker dateTimeDueDate;
@@ -449,7 +474,11 @@
         private Panel panelInvoiceInfo;
         private Panel panelWork;
         private Label labelWorkDetails;
-        private Label labelCustomerDetails;
         private Button buttonResetInvoice;
+        private ToolStripMenuItem customerMenuItem;
+        private ToolStripMenuItem newCustomerMenuItem;
+        private ToolStripMenuItem workTypeMenuItem;
+        private ToolStripMenuItem newWorkTypeMenuItem;
+        private Label labelCustomerDetails;
     }
 }
