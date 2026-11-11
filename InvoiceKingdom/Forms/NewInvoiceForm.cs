@@ -115,5 +115,11 @@ namespace InvoiceKingdom
             var form = new NewWorkTypeForm();
             form.ShowDialog();
         }
+
+        private void newTaxTypeMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new NewTaxTypeForm();
+            form.ShowDialog();
+        }
     }
 }
