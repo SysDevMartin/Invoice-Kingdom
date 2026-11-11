@@ -22,5 +22,16 @@ namespace InvoiceKingdom.Models
         public required decimal Rate { get; set; }
 
         public DateTime Created { get; set; } = DateTime.Now;
+
+        public static string GetTaxTypeName(AvailableTaxType availableTaxType)
+        {
+            return availableTaxType switch
+            {
+                AvailableTaxType.VAT => "Moms",
+                AvailableTaxType.ReductionRUT => "RUT-avdrag",
+                AvailableTaxType.ReductionROT => "ROT-avdrag",
+                _ => throw new NotImplementedException()
+            };
+        }
     }
 }
