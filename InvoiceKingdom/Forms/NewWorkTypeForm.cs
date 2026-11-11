@@ -42,13 +42,21 @@ namespace InvoiceKingdom.Forms
             {
                 cbVatRate.Items.Add(item.Key);
             }
-            cbVatRate.SelectedIndex = 0;
+
+            if (cbVatRate.Items.Count > 0)
+            {
+                cbVatRate.SelectedIndex = 0;
+            }
 
             foreach (var item in availableTaxReductionRates)
             {
                 cbTaxReductionRate.Items.Add(item.Key);
             }
-            cbTaxReductionRate.SelectedIndex = 0;
+
+            if (cbTaxReductionRate.Items.Count > 0)
+            {
+                cbTaxReductionRate.SelectedIndex = 0;
+            }
         }
 
         private void buttonAddWorkType_Click(object sender, EventArgs e)

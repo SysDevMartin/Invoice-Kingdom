@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelContactPerson = new Panel();
+            labelPersonalIdentityNumberDetails = new Label();
             textPersonalIdentityNumber = new TextBox();
             labelPersonalIdentityNumber = new Label();
             textLastName = new TextBox();
@@ -64,6 +65,7 @@
             // 
             // panelContactPerson
             // 
+            panelContactPerson.Controls.Add(labelPersonalIdentityNumberDetails);
             panelContactPerson.Controls.Add(textPersonalIdentityNumber);
             panelContactPerson.Controls.Add(labelPersonalIdentityNumber);
             panelContactPerson.Controls.Add(textLastName);
@@ -72,12 +74,22 @@
             panelContactPerson.Controls.Add(textFirstName);
             panelContactPerson.Location = new Point(14, 141);
             panelContactPerson.Name = "panelContactPerson";
-            panelContactPerson.Size = new Size(456, 174);
+            panelContactPerson.Size = new Size(456, 198);
             panelContactPerson.TabIndex = 0;
+            // 
+            // labelPersonalIdentityNumberDetails
+            // 
+            labelPersonalIdentityNumberDetails.AutoSize = true;
+            labelPersonalIdentityNumberDetails.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelPersonalIdentityNumberDetails.Location = new Point(18, 116);
+            labelPersonalIdentityNumberDetails.Name = "labelPersonalIdentityNumberDetails";
+            labelPersonalIdentityNumberDetails.Size = new Size(410, 20);
+            labelPersonalIdentityNumberDetails.TabIndex = 5;
+            labelPersonalIdentityNumberDetails.Text = "Måste fyllas i om kunden ska kunna använda skattereduktion.";
             // 
             // textPersonalIdentityNumber
             // 
-            textPersonalIdentityNumber.Location = new Point(18, 119);
+            textPersonalIdentityNumber.Location = new Point(18, 144);
             textPersonalIdentityNumber.Name = "textPersonalIdentityNumber";
             textPersonalIdentityNumber.Size = new Size(419, 30);
             textPersonalIdentityNumber.TabIndex = 2;
@@ -140,7 +152,7 @@
             labelFormDetails.Name = "labelFormDetails";
             labelFormDetails.Size = new Size(419, 69);
             labelFormDetails.TabIndex = 21;
-            labelFormDetails.Text = "Lägg till en ny kund för att kunna fakturera den.\r\n\r\nEn asterisk (*) vid ett fält betyder att det måste fyllas i.";
+            labelFormDetails.Text = "Lägg till en ny kund.\r\n\r\nEn asterisk (*) vid ett fält betyder att det måste fyllas i.";
             // 
             // panelAddress
             // 
@@ -152,7 +164,7 @@
             panelAddress.Controls.Add(textStreetAddress);
             panelAddress.Location = new Point(510, 141);
             panelAddress.Name = "panelAddress";
-            panelAddress.Size = new Size(454, 174);
+            panelAddress.Size = new Size(454, 198);
             panelAddress.TabIndex = 1;
             // 
             // labelCity
@@ -209,7 +221,7 @@
             panelContactInfo.Controls.Add(labelPhoneNumber);
             panelContactInfo.Controls.Add(textEmailAddress);
             panelContactInfo.Controls.Add(labelEmailAddress);
-            panelContactInfo.Location = new Point(14, 350);
+            panelContactInfo.Location = new Point(14, 379);
             panelContactInfo.Name = "panelContactInfo";
             panelContactInfo.Size = new Size(456, 189);
             panelContactInfo.TabIndex = 2;
@@ -251,7 +263,7 @@
             panelWorkTypes.Controls.Add(labelWorkTypesDetails);
             panelWorkTypes.Controls.Add(checkedListWorkTypes);
             panelWorkTypes.Controls.Add(labelWorkTypes);
-            panelWorkTypes.Location = new Point(510, 350);
+            panelWorkTypes.Location = new Point(510, 379);
             panelWorkTypes.Name = "panelWorkTypes";
             panelWorkTypes.Size = new Size(454, 189);
             panelWorkTypes.TabIndex = 3;
@@ -286,7 +298,7 @@
             // 
             // buttonAddCustomer
             // 
-            buttonAddCustomer.Location = new Point(11, 572);
+            buttonAddCustomer.Location = new Point(11, 601);
             buttonAddCustomer.Name = "buttonAddCustomer";
             buttonAddCustomer.Size = new Size(212, 41);
             buttonAddCustomer.TabIndex = 4;
@@ -307,7 +319,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(985, 631);
+            ClientSize = new Size(985, 658);
             Controls.Add(panelFormHeader);
             Controls.Add(buttonAddCustomer);
             Controls.Add(panelWorkTypes);
@@ -365,5 +377,6 @@
         private Label labelWorkTypesDetails;
         private Button buttonAddCustomer;
         private Panel panelFormHeader;
+        private Label labelPersonalIdentityNumberDetails;
     }
 }

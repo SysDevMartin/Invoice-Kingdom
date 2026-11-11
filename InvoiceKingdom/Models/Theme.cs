@@ -79,6 +79,10 @@ namespace InvoiceKingdom.Models
                 {
                     ((CheckedListBox)control).BorderStyle = ListBoxBorderStyle;
                 }
+                else if (control is NumericUpDown)
+                {
+                    ((NumericUpDown)control).BorderStyle = TextboxBorderStyle;
+                }
                 else if (control is Button)
                 {
                     ((Button)control).ForeColor = ButtonForeColor;

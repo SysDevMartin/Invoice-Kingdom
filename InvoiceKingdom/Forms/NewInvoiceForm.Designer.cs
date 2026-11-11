@@ -63,6 +63,7 @@
             panelInvoiceInfo = new Panel();
             panelWork = new Panel();
             labelWorkDetails = new Label();
+            newTaxTypeMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             panelInvoiceActions.SuspendLayout();
             panelCustomer.SuspendLayout();
@@ -115,13 +116,13 @@
             // newCustomerMenuItem
             // 
             newCustomerMenuItem.Name = "newCustomerMenuItem";
-            newCustomerMenuItem.Size = new Size(162, 22);
+            newCustomerMenuItem.Size = new Size(180, 22);
             newCustomerMenuItem.Text = "Lägg till ny kund";
             newCustomerMenuItem.Click += newCustomerMenuItem_Click;
             // 
             // workTypeMenuItem
             // 
-            workTypeMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newWorkTypeMenuItem });
+            workTypeMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newWorkTypeMenuItem, newTaxTypeMenuItem });
             workTypeMenuItem.Name = "workTypeMenuItem";
             workTypeMenuItem.Size = new Size(80, 19);
             workTypeMenuItem.Text = "Arbetstyper";
@@ -406,6 +407,13 @@
             labelWorkDetails.TabIndex = 7;
             labelWorkDetails.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // newTaxTypeMenuItem
+            // 
+            newTaxTypeMenuItem.Name = "newTaxTypeMenuItem";
+            newTaxTypeMenuItem.Size = new Size(184, 22);
+            newTaxTypeMenuItem.Text = "Lägg till ny skattetyp";
+            newTaxTypeMenuItem.Click += newTaxTypeMenuItem_Click;
+            // 
             // NewInvoiceForm
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
@@ -480,5 +488,6 @@
         private ToolStripMenuItem workTypeMenuItem;
         private ToolStripMenuItem newWorkTypeMenuItem;
         private Label labelCustomerDetails;
+        private ToolStripMenuItem newTaxTypeMenuItem;
     }
 }

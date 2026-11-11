@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewWorkTypeForm));
             panelProperties = new Panel();
             cbVatRate = new ComboBox();
             cbTaxReductionRate = new ComboBox();
@@ -81,18 +80,18 @@
             labelTaxReductionRate.AutoSize = true;
             labelTaxReductionRate.Location = new Point(285, 107);
             labelTaxReductionRate.Name = "labelTaxReductionRate";
-            labelTaxReductionRate.Size = new Size(130, 23);
+            labelTaxReductionRate.Size = new Size(142, 23);
             labelTaxReductionRate.TabIndex = 4;
-            labelTaxReductionRate.Text = "Skattereduktion";
+            labelTaxReductionRate.Text = "Skattereduktion *";
             // 
             // labelVatRate
             // 
             labelVatRate.AutoSize = true;
             labelVatRate.Location = new Point(18, 107);
             labelVatRate.Name = "labelVatRate";
-            labelVatRate.Size = new Size(57, 23);
+            labelVatRate.Size = new Size(69, 23);
             labelVatRate.TabIndex = 2;
-            labelVatRate.Text = "Moms";
+            labelVatRate.Text = "Moms *";
             // 
             // textName
             // 
@@ -116,9 +115,9 @@
             labelFormDetails.Location = new Point(13, 45);
             labelFormDetails.Margin = new Padding(4, 0, 4, 0);
             labelFormDetails.Name = "labelFormDetails";
-            labelFormDetails.Size = new Size(624, 92);
+            labelFormDetails.Size = new Size(458, 92);
             labelFormDetails.TabIndex = 23;
-            labelFormDetails.Text = resources.GetString("labelFormDetails.Text");
+            labelFormDetails.Text = "Lägg till en ny arbetstyp som kan användas vid fakturering.\r\nRedigera en kund för att koppla arbetstypen till kunden.\r\n\r\nEn asterisk (*) vid ett fält betyder att det måste fyllas i.";
             // 
             // labelFormTitle
             // 
