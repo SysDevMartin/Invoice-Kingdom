@@ -16,6 +16,8 @@ namespace InvoiceKingdom.Data
 
         public DbSet<WorkType> WorkTypes { get; set; } = null!;
 
+        public DbSet<TaxType> TaxTypes { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=ApplicationData.db");
