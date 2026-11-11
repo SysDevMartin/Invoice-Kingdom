@@ -35,9 +35,9 @@
             panelProperties = new Panel();
             numericRate = new NumericUpDown();
             labelRate = new Label();
-            cbType = new ComboBox();
+            cbFunction = new ComboBox();
             labelType = new Label();
-            textTaxType = new TextBox();
+            this.textName = new TextBox();
             labelName = new Label();
             buttonAddTaxType = new Button();
             panelFormHeader.SuspendLayout();
@@ -79,21 +79,21 @@
             // 
             panelProperties.Controls.Add(numericRate);
             panelProperties.Controls.Add(labelRate);
-            panelProperties.Controls.Add(cbType);
+            panelProperties.Controls.Add(cbFunction);
             panelProperties.Controls.Add(labelType);
-            panelProperties.Controls.Add(textTaxType);
+            panelProperties.Controls.Add(this.textName);
             panelProperties.Controls.Add(labelName);
             panelProperties.Location = new Point(13, 174);
             panelProperties.Name = "panelProperties";
             panelProperties.Size = new Size(680, 178);
-            panelProperties.TabIndex = 26;
+            panelProperties.TabIndex = 0;
             // 
             // numericRate
             // 
             numericRate.Location = new Point(354, 126);
             numericRate.Name = "numericRate";
             numericRate.Size = new Size(127, 30);
-            numericRate.TabIndex = 5;
+            numericRate.TabIndex = 2;
             // 
             // labelRate
             // 
@@ -104,14 +104,14 @@
             labelRate.TabIndex = 4;
             labelRate.Text = "Skattesats (%) *";
             // 
-            // cbType
+            // cbFunction
             // 
-            cbType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbType.FormattingEnabled = true;
-            cbType.Location = new Point(15, 126);
-            cbType.Name = "cbType";
-            cbType.Size = new Size(268, 31);
-            cbType.TabIndex = 3;
+            cbFunction.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbFunction.FormattingEnabled = true;
+            cbFunction.Location = new Point(15, 126);
+            cbFunction.Name = "cbFunction";
+            cbFunction.Size = new Size(268, 31);
+            cbFunction.TabIndex = 1;
             // 
             // labelType
             // 
@@ -122,12 +122,12 @@
             labelType.TabIndex = 2;
             labelType.Text = "Funktion *";
             // 
-            // textTaxType
+            // textName
             // 
-            textTaxType.Location = new Point(15, 42);
-            textTaxType.Name = "textTaxType";
-            textTaxType.Size = new Size(647, 30);
-            textTaxType.TabIndex = 1;
+            this.textName.Location = new Point(15, 42);
+            this.textName.Name = "textName";
+            this.textName.Size = new Size(647, 30);
+            this.textName.TabIndex = 0;
             // 
             // labelName
             // 
@@ -143,9 +143,10 @@
             buttonAddTaxType.Location = new Point(13, 385);
             buttonAddTaxType.Name = "buttonAddTaxType";
             buttonAddTaxType.Size = new Size(212, 40);
-            buttonAddTaxType.TabIndex = 27;
+            buttonAddTaxType.TabIndex = 1;
             buttonAddTaxType.Text = "Lägg till skattetypen";
             buttonAddTaxType.UseVisualStyleBackColor = true;
+            buttonAddTaxType.Click += buttonAddTaxType_Click;
             // 
             // NewTaxTypeForm
             // 
@@ -178,8 +179,8 @@
         private Label labelFormDetails;
         private Panel panelProperties;
         private Label labelName;
-        private TextBox textTaxType;
-        private ComboBox cbType;
+        private TextBox textName;
+        private ComboBox cbFunction;
         private Label labelType;
         private Button buttonAddTaxType;
         private Label labelRate;

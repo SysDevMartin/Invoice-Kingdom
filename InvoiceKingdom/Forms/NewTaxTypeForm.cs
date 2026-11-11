@@ -1,4 +1,5 @@
-﻿using InvoiceKingdom.Models;
+﻿using InvoiceKingdom.Data;
+using InvoiceKingdom.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,24 +19,45 @@ namespace InvoiceKingdom.Forms
 
         private void NewTaxTypeForm_Load(object sender, EventArgs e)
         {
-            Theme.SetFormStyle(this);
+            Theme.SetFormStyle(this, labelFormDetails);
             Theme.SetPanelStyle([panelProperties]);
             Theme.SetControlStyle([
-                textTaxType,
-                cbType,
+                textName,
+                cbFunction,
                 numericRate,
                 buttonAddTaxType
             ]);
 
-            foreach (var type in Enum.GetValues<TaxType.AvailableTaxType>())
+            foreach (var type in Enum.GetValues<TaxType.AvailableTaxFunction>())
             {
                 var friendlyTypeText = TaxType.GetTaxTypeName(type);
-                cbType.Items.Add(friendlyTypeText);
+                cbFunction.Items.Add(friendlyTypeText);
             }
 
-            if (cbType.Items.Count > 0)
+            if (cbFunction.Items.Count > 0)
             {
-                cbType.SelectedIndex = 0;
+                cbFunction.SelectedIndex = 0;
+            }
+        }
+
+        private void buttonAddTaxType_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var name = textName.Text;
+                var function = Enum.GetValues<TaxType.AvailableTaxFunction>()[cbFunction.SelectedIndex];
+                var isRateConversionSuccessful = Decimal.TryParse(numericRate.Text, out var rate);
+                if (!isRateConversionSuccessful)
+                {
+                    throw new InvalidCastException();
+                }
+                using InvoiceKingdomContext context = new();
+                TaxType.CreateTaxType(context, name, function, rate / 100);
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
