@@ -37,7 +37,7 @@
             labelRate = new Label();
             cbFunction = new ComboBox();
             labelType = new Label();
-            this.textName = new TextBox();
+            textName = new TextBox();
             labelName = new Label();
             buttonAddTaxType = new Button();
             panelFormHeader.SuspendLayout();
@@ -71,7 +71,7 @@
             labelFormDetails.Location = new Point(13, 45);
             labelFormDetails.Margin = new Padding(4, 0, 4, 0);
             labelFormDetails.Name = "labelFormDetails";
-            labelFormDetails.Size = new Size(680, 92);
+            labelFormDetails.Size = new Size(570, 92);
             labelFormDetails.TabIndex = 23;
             labelFormDetails.Text = resources.GetString("labelFormDetails.Text");
             // 
@@ -81,7 +81,7 @@
             panelProperties.Controls.Add(labelRate);
             panelProperties.Controls.Add(cbFunction);
             panelProperties.Controls.Add(labelType);
-            panelProperties.Controls.Add(this.textName);
+            panelProperties.Controls.Add(textName);
             panelProperties.Controls.Add(labelName);
             panelProperties.Location = new Point(13, 174);
             panelProperties.Name = "panelProperties";
@@ -124,10 +124,10 @@
             // 
             // textName
             // 
-            this.textName.Location = new Point(15, 42);
-            this.textName.Name = "textName";
-            this.textName.Size = new Size(647, 30);
-            this.textName.TabIndex = 0;
+            textName.Location = new Point(15, 42);
+            textName.Name = "textName";
+            textName.Size = new Size(647, 30);
+            textName.TabIndex = 0;
             // 
             // labelName
             // 

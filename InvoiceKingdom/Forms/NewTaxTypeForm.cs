@@ -28,7 +28,7 @@ namespace InvoiceKingdom.Forms
                 buttonAddTaxType
             ]);
 
-            foreach (var type in Enum.GetValues<TaxType.AvailableTaxFunction>())
+            foreach (var type in Enum.GetValues<TaxType.TaxFunction>())
             {
                 var friendlyTypeText = TaxType.GetTaxTypeName(type);
                 cbFunction.Items.Add(friendlyTypeText);
@@ -45,7 +45,7 @@ namespace InvoiceKingdom.Forms
             try
             {
                 var name = textName.Text;
-                var function = Enum.GetValues<TaxType.AvailableTaxFunction>()[cbFunction.SelectedIndex];
+                var function = Enum.GetValues<TaxType.TaxFunction>()[cbFunction.SelectedIndex];
                 var isRateConversionSuccessful = Decimal.TryParse(numericRate.Text, out var rate);
                 if (!isRateConversionSuccessful)
                 {
