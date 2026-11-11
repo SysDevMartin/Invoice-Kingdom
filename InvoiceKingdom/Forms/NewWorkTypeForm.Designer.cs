@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewWorkTypeForm));
             panelProperties = new Panel();
             cbVatRate = new ComboBox();
             cbTaxReductionRate = new ComboBox();
@@ -116,9 +115,9 @@
             labelFormDetails.Location = new Point(13, 45);
             labelFormDetails.Margin = new Padding(4, 0, 4, 0);
             labelFormDetails.Name = "labelFormDetails";
-            labelFormDetails.Size = new Size(624, 92);
+            labelFormDetails.Size = new Size(458, 92);
             labelFormDetails.TabIndex = 23;
-            labelFormDetails.Text = resources.GetString("labelFormDetails.Text");
+            labelFormDetails.Text = "Lägg till en ny arbetstyp som kan användas vid fakturering.\r\nRedigera en kund för att koppla arbetstypen till kunden.\r\n\r\nEn asterisk (*) vid ett fält betyder att det måste fyllas i.";
             // 
             // labelFormTitle
             // 
