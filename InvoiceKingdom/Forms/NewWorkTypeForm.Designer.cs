@@ -81,18 +81,18 @@
             labelTaxReductionRate.AutoSize = true;
             labelTaxReductionRate.Location = new Point(285, 107);
             labelTaxReductionRate.Name = "labelTaxReductionRate";
-            labelTaxReductionRate.Size = new Size(130, 23);
+            labelTaxReductionRate.Size = new Size(142, 23);
             labelTaxReductionRate.TabIndex = 4;
-            labelTaxReductionRate.Text = "Skattereduktion";
+            labelTaxReductionRate.Text = "Skattereduktion *";
             // 
             // labelVatRate
             // 
             labelVatRate.AutoSize = true;
             labelVatRate.Location = new Point(18, 107);
             labelVatRate.Name = "labelVatRate";
-            labelVatRate.Size = new Size(57, 23);
+            labelVatRate.Size = new Size(69, 23);
             labelVatRate.TabIndex = 2;
-            labelVatRate.Text = "Moms";
+            labelVatRate.Text = "Moms *";
             // 
             // textName
             // 
