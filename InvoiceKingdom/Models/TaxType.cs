@@ -7,16 +7,17 @@ namespace InvoiceKingdom.Models
 {
     internal class TaxType
     {
-        public enum AvailableTaxFunction
+        public enum TaxFunction
         {
             VAT,
-            ReductionRUT,
-            ReductionROT
+            ReductionRUT
         }
+
+        #region Database fields
 
         public int Id { get; set; }
 
-        public required AvailableTaxFunction Function { get; set; }
+        public required TaxFunction Function { get; set; }
 
         public required string Name { get; set; }
 
@@ -24,13 +25,14 @@ namespace InvoiceKingdom.Models
 
         public DateTime Created { get; set; } = DateTime.Now;
 
-        public static string GetTaxTypeName(AvailableTaxFunction availableTaxType)
+        #endregion
+
+        public static string GetTaxTypeName(TaxFunction availableTaxType)
         {
             return availableTaxType switch
             {
-                AvailableTaxFunction.VAT => "Moms",
-                AvailableTaxFunction.ReductionRUT => "RUT-avdrag",
-                AvailableTaxFunction.ReductionROT => "ROT-avdrag",
+                TaxFunction.VAT => "Moms",
+                TaxFunction.ReductionRUT => "RUT-avdrag",
                 _ => throw new NotImplementedException()
             };
         }
@@ -38,7 +40,7 @@ namespace InvoiceKingdom.Models
         public static void CreateTaxType(
             InvoiceKingdomContext context,
             string name,
-            AvailableTaxFunction function,
+            TaxFunction function,
             decimal rate
             )
         {
