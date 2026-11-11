@@ -412,11 +412,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1300, 707);
+            Controls.Add(labelFormTitle);
             Controls.Add(panelWork);
             Controls.Add(panelInvoiceInfo);
             Controls.Add(panelDetails);
             Controls.Add(panelCustomer);
-            Controls.Add(labelFormTitle);
             Controls.Add(panelInvoiceActions);
             Controls.Add(menuStrip);
             Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
