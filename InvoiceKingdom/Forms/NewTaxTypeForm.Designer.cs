@@ -36,7 +36,7 @@
             numericRate = new NumericUpDown();
             labelRate = new Label();
             cbFunction = new ComboBox();
-            labelType = new Label();
+            labelFunction = new Label();
             textName = new TextBox();
             labelName = new Label();
             buttonAddTaxType = new Button();
@@ -80,17 +80,17 @@
             panelProperties.Controls.Add(numericRate);
             panelProperties.Controls.Add(labelRate);
             panelProperties.Controls.Add(cbFunction);
-            panelProperties.Controls.Add(labelType);
+            panelProperties.Controls.Add(labelFunction);
             panelProperties.Controls.Add(textName);
             panelProperties.Controls.Add(labelName);
             panelProperties.Location = new Point(13, 174);
             panelProperties.Name = "panelProperties";
-            panelProperties.Size = new Size(680, 178);
+            panelProperties.Size = new Size(680, 183);
             panelProperties.TabIndex = 0;
             // 
             // numericRate
             // 
-            numericRate.Location = new Point(354, 126);
+            numericRate.Location = new Point(321, 126);
             numericRate.Name = "numericRate";
             numericRate.Size = new Size(127, 30);
             numericRate.TabIndex = 2;
@@ -98,7 +98,7 @@
             // labelRate
             // 
             labelRate.AutoSize = true;
-            labelRate.Location = new Point(354, 100);
+            labelRate.Location = new Point(321, 100);
             labelRate.Name = "labelRate";
             labelRate.Size = new Size(127, 23);
             labelRate.TabIndex = 4;
@@ -113,14 +113,14 @@
             cbFunction.Size = new Size(268, 31);
             cbFunction.TabIndex = 1;
             // 
-            // labelType
+            // labelFunction
             // 
-            labelType.AutoSize = true;
-            labelType.Location = new Point(15, 100);
-            labelType.Name = "labelType";
-            labelType.Size = new Size(88, 23);
-            labelType.TabIndex = 2;
-            labelType.Text = "Funktion *";
+            labelFunction.AutoSize = true;
+            labelFunction.Location = new Point(15, 100);
+            labelFunction.Name = "labelFunction";
+            labelFunction.Size = new Size(88, 23);
+            labelFunction.TabIndex = 2;
+            labelFunction.Text = "Funktion *";
             // 
             // textName
             // 
@@ -140,7 +140,7 @@
             // 
             // buttonAddTaxType
             // 
-            buttonAddTaxType.Location = new Point(13, 385);
+            buttonAddTaxType.Location = new Point(13, 383);
             buttonAddTaxType.Name = "buttonAddTaxType";
             buttonAddTaxType.Size = new Size(212, 40);
             buttonAddTaxType.TabIndex = 1;
@@ -152,7 +152,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(707, 441);
+            ClientSize = new Size(707, 445);
             Controls.Add(buttonAddTaxType);
             Controls.Add(panelProperties);
             Controls.Add(panelFormHeader);
@@ -181,7 +181,7 @@
         private Label labelName;
         private TextBox textName;
         private ComboBox cbFunction;
-        private Label labelType;
+        private Label labelFunction;
         private Button buttonAddTaxType;
         private Label labelRate;
         private NumericUpDown numericRate;
