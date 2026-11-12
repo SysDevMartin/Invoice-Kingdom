@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             panelProperties = new Panel();
-            cbVatRate = new ComboBox();
-            cbTaxReductionRate = new ComboBox();
+            cbSurchargeRate = new ComboBox();
+            cbReductionRate = new ComboBox();
             labelTaxReductionRate = new Label();
             labelVatRate = new Label();
             textName = new TextBox();
@@ -45,8 +45,8 @@
             // 
             // panelProperties
             // 
-            panelProperties.Controls.Add(cbVatRate);
-            panelProperties.Controls.Add(cbTaxReductionRate);
+            panelProperties.Controls.Add(cbSurchargeRate);
+            panelProperties.Controls.Add(cbReductionRate);
             panelProperties.Controls.Add(labelTaxReductionRate);
             panelProperties.Controls.Add(labelVatRate);
             panelProperties.Controls.Add(textName);
@@ -57,23 +57,23 @@
             panelProperties.Size = new Size(633, 184);
             panelProperties.TabIndex = 0;
             // 
-            // cbVatRate
+            // cbSurchargeRate
             // 
-            cbVatRate.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbVatRate.FormattingEnabled = true;
-            cbVatRate.Location = new Point(18, 133);
-            cbVatRate.Name = "cbVatRate";
-            cbVatRate.Size = new Size(230, 31);
-            cbVatRate.TabIndex = 8;
+            cbSurchargeRate.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSurchargeRate.FormattingEnabled = true;
+            cbSurchargeRate.Location = new Point(18, 133);
+            cbSurchargeRate.Name = "cbSurchargeRate";
+            cbSurchargeRate.Size = new Size(230, 31);
+            cbSurchargeRate.TabIndex = 8;
             // 
-            // cbTaxReductionRate
+            // cbReductionRate
             // 
-            cbTaxReductionRate.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbTaxReductionRate.FormattingEnabled = true;
-            cbTaxReductionRate.Location = new Point(285, 133);
-            cbTaxReductionRate.Name = "cbTaxReductionRate";
-            cbTaxReductionRate.Size = new Size(230, 31);
-            cbTaxReductionRate.TabIndex = 7;
+            cbReductionRate.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbReductionRate.FormattingEnabled = true;
+            cbReductionRate.Location = new Point(285, 133);
+            cbReductionRate.Name = "cbReductionRate";
+            cbReductionRate.Size = new Size(230, 31);
+            cbReductionRate.TabIndex = 7;
             // 
             // labelTaxReductionRate
             // 
@@ -89,9 +89,9 @@
             labelVatRate.AutoSize = true;
             labelVatRate.Location = new Point(18, 107);
             labelVatRate.Name = "labelVatRate";
-            labelVatRate.Size = new Size(69, 23);
+            labelVatRate.Size = new Size(118, 23);
             labelVatRate.TabIndex = 2;
-            labelVatRate.Text = "Moms *";
+            labelVatRate.Text = "Skattepåslag *";
             // 
             // textName
             // 
@@ -184,7 +184,7 @@
         private Label labelTaxReductionRate;
         private Button buttonAddWorkType;
         private Panel panelFormHeader;
-        private ComboBox cbVatRate;
-        private ComboBox cbTaxReductionRate;
+        private ComboBox cbSurchargeRate;
+        private ComboBox cbReductionRate;
     }
 }

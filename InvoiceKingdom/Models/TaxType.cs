@@ -9,17 +9,18 @@ namespace InvoiceKingdom.Models
     {
         public enum TaxFunction
         {
-            VAT,
-            ReductionRUT
+            None,
+            Surcharge,
+            Reduction
         }
 
         #region Database fields
 
         public int Id { get; set; }
 
-        public required TaxFunction Function { get; set; }
-
         public required string Name { get; set; }
+
+        public required TaxFunction Function { get; set; }
 
         public required decimal Rate { get; set; }
 
@@ -27,12 +28,13 @@ namespace InvoiceKingdom.Models
 
         #endregion
 
-        public static string GetTaxTypeName(TaxFunction availableTaxType)
+        public static string GetTaxFunctionName(TaxFunction availableTaxFunctions)
         {
-            return availableTaxType switch
+            return availableTaxFunctions switch
             {
-                TaxFunction.VAT => "Moms",
-                TaxFunction.ReductionRUT => "RUT-avdrag",
+                TaxFunction.None => "Ingen skatt",
+                TaxFunction.Surcharge => "Moms",
+                TaxFunction.Reduction => "RUT-avdrag",
                 _ => throw new NotImplementedException()
             };
         }
@@ -42,7 +44,7 @@ namespace InvoiceKingdom.Models
             string name,
             TaxFunction function,
             decimal rate
-            )
+        )
         {
             // Trim values.
             name = name.Trim();

@@ -12,15 +12,19 @@ namespace InvoiceKingdom.Forms
 {
     public partial class NewWorkTypeForm : Form
     {
-        private Dictionary<string, decimal> availableVatRates = new()
+        /*private Dictionary<string, decimal> availableVatRates = new()
         {
             { "Standard (25%)", 0.25M },
         };
+
         private Dictionary<string, decimal> availableTaxReductionRates = new()
         {
             { "Ingen (0%)", 0 },
             { "RUT-avdrag (25%)", 0.25M }
-        };
+        };*/
+
+        private List<TaxType> availableSurchargeTaxTypes = [];
+        private List<TaxType> availableReductionTaxTypes = [];
 
         public NewWorkTypeForm()
         {
@@ -33,29 +37,46 @@ namespace InvoiceKingdom.Forms
             Theme.SetPanelStyle([panelProperties]);
             Theme.SetControlStyle([
                 textName,
-                cbVatRate,
-                cbTaxReductionRate,
+                cbSurchargeRate,
+                cbReductionRate,
                 buttonAddWorkType
-                ]);
+            ]);
 
-            foreach (var item in availableVatRates)
+            using InvoiceKingdomContext context = new();
+
+            TaxType.TaxFunction[] eligibleTaxSurchargeTypes = [TaxType.TaxFunction.None, TaxType.TaxFunction.Surcharge];
+            TaxType.TaxFunction[] eligibleTaxReductionTypes = [TaxType.TaxFunction.None, TaxType.TaxFunction.Reduction];
+
+            availableSurchargeTaxTypes = context.TaxTypes
+                .Where(t => eligibleTaxSurchargeTypes.Contains(t.Function))
+                .ToList();
+
+            foreach (var item in availableSurchargeTaxTypes)
             {
-                cbVatRate.Items.Add(item.Key);
+                var rate = Math.Round(item.Rate * 100);
+                var itemText = $"{item.Name} ({rate}%)";
+                cbSurchargeRate.Items.Add(itemText);
             }
 
-            if (cbVatRate.Items.Count > 0)
+            if (cbSurchargeRate.Items.Count > 0)
             {
-                cbVatRate.SelectedIndex = 0;
+                cbSurchargeRate.SelectedIndex = 0;
             }
 
-            foreach (var item in availableTaxReductionRates)
+            availableReductionTaxTypes = context.TaxTypes
+                .Where(t => eligibleTaxReductionTypes.Contains(t.Function))
+                .ToList();
+
+            foreach (var item in availableReductionTaxTypes)
             {
-                cbTaxReductionRate.Items.Add(item.Key);
+                var rate = Math.Round(item.Rate * 100);
+                var itemText = $"{item.Name} ({rate}%)";
+                cbReductionRate.Items.Add(itemText);
             }
 
-            if (cbTaxReductionRate.Items.Count > 0)
+            if (cbReductionRate.Items.Count > 0)
             {
-                cbTaxReductionRate.SelectedIndex = 0;
+                cbReductionRate.SelectedIndex = 0;
             }
         }
 
@@ -64,17 +85,19 @@ namespace InvoiceKingdom.Forms
             try
             {
                 var name = textName.Text.Trim();
-                var vatRateKey = cbVatRate.SelectedItem.ToString();
-                var vatRateValue = availableVatRates[vatRateKey];
-                var taxReductionRateKey = cbTaxReductionRate.SelectedItem.ToString();
-                var taxReductionRateValue = availableTaxReductionRates[taxReductionRateKey];
+                var taxSurchargeTypeIndex = cbSurchargeRate.SelectedIndex;
+                var taxSurchargeType = availableSurchargeTaxTypes[taxSurchargeTypeIndex];
+                var taxReductionTypeIndex = cbReductionRate.SelectedIndex;
+                var taxReductionType = availableReductionTaxTypes[taxReductionTypeIndex];
+
                 using InvoiceKingdomContext context = new();
-                WorkType.CreateWorkType(context, name, vatRateValue, taxReductionRateValue);
+                WorkType.CreateWorkType(context, name, taxSurchargeType, taxReductionType);
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var message = $"{ex.Message}{Environment.NewLine}{Environment.NewLine}{ex.InnerException}".Trim();
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
