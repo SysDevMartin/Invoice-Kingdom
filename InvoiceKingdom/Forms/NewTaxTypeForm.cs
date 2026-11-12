@@ -28,10 +28,10 @@ namespace InvoiceKingdom.Forms
                 buttonAddTaxType
             ]);
 
-            foreach (var type in Enum.GetValues<TaxType.TaxFunction>())
+            foreach (var function in Enum.GetValues<TaxType.TaxFunction>())
             {
-                var friendlyTypeText = TaxType.GetTaxTypeName(type);
-                cbFunction.Items.Add(friendlyTypeText);
+                var friendlyText = TaxType.GetTaxFunctionName(function);
+                cbFunction.Items.Add(friendlyText);
             }
 
             if (cbFunction.Items.Count > 0)
@@ -51,13 +51,15 @@ namespace InvoiceKingdom.Forms
                 {
                     throw new InvalidCastException();
                 }
+
                 using InvoiceKingdomContext context = new();
                 TaxType.CreateTaxType(context, name, function, rate / 100);
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var message = $"{ex.Message}{Environment.NewLine}{Environment.NewLine}{ex.InnerException}".Trim();
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
