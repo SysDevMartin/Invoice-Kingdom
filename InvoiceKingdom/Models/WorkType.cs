@@ -14,9 +14,9 @@ namespace InvoiceKingdom.Models
 
         public required string Name { get; set; }
 
-        public decimal VatRate { get; set; }
+        public required TaxType TaxSurchargeType { get; set; }
 
-        public decimal TexReductionRate { get; set; }
+        public required TaxType TaxReductionType { get; set; }
 
         public ICollection<Customer> Customers { get; set; } = null!;
 
@@ -29,28 +29,30 @@ namespace InvoiceKingdom.Models
         public static void CreateWorkType(
             InvoiceKingdomContext context,
             string name,
-            decimal vatRate,
-            decimal taxReductionRate
-            )
+            TaxType taxSurchargeType,
+            TaxType taxReductionType
+        )
         {
             // Trim values.
             name = name.Trim();
 
             // Validate required values.
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
-            if (vatRate < 0 || vatRate > 1) throw new ArgumentOutOfRangeException("vatRate");
-            if (taxReductionRate < 0 || taxReductionRate > 1) throw new ArgumentOutOfRangeException("taxReductionRate");
+            if (taxSurchargeType == null) throw new ArgumentNullException("taxSurchargeType");
+            if (taxReductionType == null) throw new ArgumentNullException("taxReductionType");
 
             try
             {
                 var workType = new WorkType()
                 {
                     Name = name,
-                    VatRate = vatRate,
-                    TexReductionRate = taxReductionRate
+                    TaxSurchargeType = taxSurchargeType,
+                    TaxReductionType = taxReductionType
                 };
 
                 context.WorkTypes.Add(workType);
+                context.TaxTypes.Attach(taxSurchargeType);
+                context.TaxTypes.Attach(taxReductionType);
                 context.SaveChanges();
             }
             catch
