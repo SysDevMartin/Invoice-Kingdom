@@ -4,3 +4,4 @@ bin/
 obj/
 ApplicationData.db*
 Migrations/
+*.tmp
